@@ -17,6 +17,6 @@ import { AppComponent } from './app.component';
 })
 export class AppModule implements OnInit {
   ngOnInit(): void {
-    console.log('The app is initialized')
+    console.log('Console log from develop branch')
   }
  }
