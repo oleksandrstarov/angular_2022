@@ -1,0 +1,65 @@
+@import "../../styles/variables";
+@import "../../styles/container";
+
+.header {
+  width: 100vw;
+  height: 60px;
+
+  background-color: $light-background-color;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 100%;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+
+  font-size: 16px;
+  line-height: 20px;
+
+  text-transform: uppercase;
+
+  color: $light-text-color;
+}
+
+.search-block {
+  width: 400px;
+  height: 30px;
+  margin-right: 25px;
+
+  border: 1px solid black;
+  border-radius: 50px;
+
+  cursor: pointer;
+}
+
+.favourite-list-block {
+  width: 350px;
+  height: 20px;
+  border: 1px solid black;
+}
+
+.language-switcher {
+  margin-right: 40px;
+  font-size: 16px;
+  line-height: 20px;
+
+  color: $light-text-color;
+
+  .non-active-language {
+    color: $light-additional-text-color;
+  }
+}
+
+.theme-switcher {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  height: 100%;
+}
