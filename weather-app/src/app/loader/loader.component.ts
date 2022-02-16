@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoaderComponent implements OnInit {
   isLoading = true;
+  isDarkMode = false;
 
   constructor() { }
 

@@ -49,4 +49,18 @@
       top: 236px;
     }
   }
+
+  &.dark-mode {
+    @media screen and (max-width: $before-tablet-breakpoint) {
+      & .background {
+        background-image: url("../../assets/images/dark-mobile-background.png");
+      }
+    }
+
+    @media screen and (min-width: $tablet-breakpoint) {
+      & .background {
+        background-color: $dark-additional-background-color-opacity90;
+      }
+    }
+  }
 }
