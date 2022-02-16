@@ -11,48 +11,80 @@
 .header-container {
   display: flex;
   align-items: center;
+
+  // presses the left and right elements to the edges of the container, the others are spaced equidistant from each other
+  // convenient in our case, because we don't yet know which size the list of saved cities will
+  // it also allows to make the layout "responsive" on the width of the screen up to 480px
+  justify-content: space-between;
+
   height: 100%;
 }
 
 .logo {
-  height: 100%;
-  margin-right: 40px;
   display: flex;
   align-items: center;
 
-  font-size: 16px;
-  line-height: 20px;
+  height: 100%;
 
+  font-size: 16px;
+  line-height: 1.25;
   text-transform: uppercase;
 
   color: $light-text-color;
+
+  @media screen and (max-width: $desktop-breakpoint) {
+    display: none;
+  }
 }
 
+// this is a block-stub, until component 'search form' is created
 .search-block {
-  width: 400px;
+  width: 50vw;
   height: 30px;
-  margin-right: 25px;
 
   border: 1px solid black;
   border-radius: 50px;
 
   cursor: pointer;
+
+  @media screen and (min-width: $mobile-breakpoint) {
+    width: 260px;
+  }
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    width: 400px;
+  }
 }
 
+// this is a block-stub, until component 'favourite list' is created
 .favourite-list-block {
-  width: 350px;
+  display: flex;
+  justify-content: center;
+
+  width: 20px;
   height: 20px;
-  border: 1px solid black;
+
+  color: $light-text-color;
+  border-bottom: 1px solid $light-text-color;
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    width: 350px;
+    height: 20px;
+  }
 }
 
 .language-switcher {
-  margin-right: 40px;
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
   font-size: 16px;
-  line-height: 20px;
+  line-height: 1.25;
 
   color: $light-text-color;
 
-  .non-active-language {
+  .inactive {
     color: $light-additional-text-color;
   }
 }
@@ -61,5 +93,18 @@
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
+
   height: 100%;
+
+  &_description {
+    @media screen and (max-width: $desktop-breakpoint) {
+      display: none;
+    }
+  }
+
+  .icon {
+    width: 30px;
+    height: 16px;
+    margin-left: 5px;
+  }
 }
