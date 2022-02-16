@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+
+.background {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 70px;
+  margin-right: auto;
+  margin-left: auto;
+
+  width: 560px;
+  height: 360px;
+  background-color: rgba(246, 244, 244, 0.9);
+  border-radius: 20px;
+}
+
+.loader-image {
+  width: 150px;
+  height: 150px;
+}
