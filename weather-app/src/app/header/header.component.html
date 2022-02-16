@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header" [ngClass]="{'dark-mode': isDarkMode}">
     <div class="container header-container">
         <a href="#" class="logo">TEAM SOUL <br> WEATHER APP</a>
 
@@ -6,14 +6,20 @@
         <div class="search-block"></div> 
         <!-- this is a block-stub, until component 'favourite list' is created  -->
         <div class="favourite-list-block">
-            <svg width="20" height="20">
+            <svg class="icon light" width="20" height="20">
                 <use href="../../assets/images/icons/sprite.svg#icon-star-light-checked"></use>
+            </svg>
+            <svg class="icon dark" width="20" height="20">
+                <use href="../../assets/images/icons/sprite.svg#icon-star-dark-checked"></use>
             </svg>
         </div>
        
         <div class="language-switcher"><span>EN</span> | <span class="inactive">UA</span></div>
         <div class="theme-switcher">
             <p class="theme-switcher_description">Dark Mode</p>
+
+            <!-- WE STILL NEED TO DISCUSS HOW TO USE SVG ICONS AND REPLACE BROKEN ICONS -->
+            
              <!-- <svg class="icon" width="30" height="16">
                 <use href="../../assets/images/icons/sprite.svg#icon-switch-theme-light" />
             </svg> -->
@@ -23,7 +29,8 @@
                 <circle cx="16" cy="16" r="12" fill="#5A5A5A" />
             </svg> -->
             
-            <img class="icon" src="../../assets/images/icons/switch-theme-light.svg" />
+            <img class="icon light" src="../../assets/images/icons/switch-theme-light.svg" />
+            <img class="icon dark" src="../../assets/images/icons/switch-theme-dark.svg" />
         </div>
     </div>
 </header>

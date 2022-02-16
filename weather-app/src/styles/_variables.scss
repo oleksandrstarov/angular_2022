@@ -5,6 +5,7 @@ $light-additional-text-color: rgba(90, 90, 90, 0.5);
 
 $light-background-color: #ffffff;
 $light-additional-background-color: #f6f4f4;
+$light-additional-background-color-opacity90: rgba(246, 244, 244, 0.9);
 
 // DARK THEME
 
@@ -20,5 +21,9 @@ $error-color: #d93b3b;
 
 // BREAKPOINTS
 
+$before-mobile-breakpoint: 479px;
 $mobile-breakpoint: 480px;
+$before-tablet-breakpoint: 767px;
+$tablet-breakpoint: 768px;
+$before-desktop-breakpoint: 1279px;
 $desktop-breakpoint: 1280px;

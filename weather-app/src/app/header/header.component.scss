@@ -5,6 +5,7 @@
   width: 100vw;
   height: 60px;
 
+  color: $light-text-color;
   background-color: $light-background-color;
 }
 
@@ -31,10 +32,6 @@
   text-transform: uppercase;
 
   color: $light-text-color;
-
-  @media screen and (max-width: $desktop-breakpoint) {
-    display: none;
-  }
 }
 
 // this is a block-stub, until component 'search form' is created
@@ -42,18 +39,10 @@
   width: 50vw;
   height: 30px;
 
-  border: 1px solid black;
+  border: 1px solid $light-text-color;
   border-radius: 50px;
 
   cursor: pointer;
-
-  @media screen and (min-width: $mobile-breakpoint) {
-    width: 260px;
-  }
-
-  @media screen and (min-width: $desktop-breakpoint) {
-    width: 400px;
-  }
 }
 
 // this is a block-stub, until component 'favourite list' is created
@@ -64,12 +53,12 @@
   width: 20px;
   height: 20px;
 
-  color: $light-text-color;
-  border-bottom: 1px solid $light-text-color;
+  .icon.dark {
+    display: none;
+  }
 
-  @media screen and (min-width: $desktop-breakpoint) {
-    width: 350px;
-    height: 20px;
+  .icon.light {
+    display: block;
   }
 }
 
@@ -81,8 +70,6 @@
 
   font-size: 16px;
   line-height: 1.25;
-
-  color: $light-text-color;
 
   .inactive {
     color: $light-additional-text-color;
@@ -96,15 +83,87 @@
 
   height: 100%;
 
-  &_description {
-    @media screen and (max-width: $desktop-breakpoint) {
-      display: none;
-    }
-  }
-
   .icon {
     width: 30px;
     height: 16px;
     margin-left: 5px;
+  }
+
+  .icon.dark {
+    display: none;
+  }
+
+  .icon.light {
+    display: block;
+  }
+}
+
+@media screen and (min-width: $mobile-breakpoint) {
+  .search-block {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: $before-tablet-breakpoint) {
+  .logo {
+    display: none;
+  }
+
+  .theme-switcher_description {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+  .search-block {
+    width: 400px;
+  }
+
+  .favourite-list-block {
+    width: 350px;
+    height: 20px;
+
+    border-bottom: 1px solid $light-text-color;
+  }
+}
+
+.dark-mode {
+  &.header {
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+  }
+
+  .logo {
+    color: $dark-text-color;
+  }
+
+  .search-block {
+    border: 1px solid $dark-text-color;
+  }
+
+  .favourite-list-block {
+    border-bottom: 1px solid $dark-text-color;
+
+    .icon.light {
+      display: none;
+    }
+
+    .icon.dark {
+      display: block;
+    }
+  }
+
+  .language-switcher .inactive {
+    color: $dark-additional-text-color;
+  }
+
+  .theme-switcher {
+    .icon.light {
+      display: none;
+    }
+
+    .icon.dark {
+      display: block;
+    }
   }
 }

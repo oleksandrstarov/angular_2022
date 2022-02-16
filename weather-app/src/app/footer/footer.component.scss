@@ -16,3 +16,17 @@
 
   background-color: $light-background-color;
 }
+
+@media screen and (max-width: $before-tablet-breakpoint) {
+  .footer {
+    border-top: 1px solid $light-text-color;
+  }
+}
+
+.dark-mode {
+  &.footer {
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+    border-top: 1px solid $dark-text-color;
+  }
+}

@@ -1,3 +1,5 @@
-<div class="background">
-    <img class="loader-image" src="../../assets/images/weather-icons.svg/sun.svg"/>
+<div [ngClass]="{'visible': isLoading}">
+    <img class="loader-image" src="../../assets/images/loader.svg" />
+    <div class="background">
+    </div>
 </div>

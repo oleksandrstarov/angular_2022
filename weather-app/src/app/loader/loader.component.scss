@@ -1,21 +1,52 @@
 @import "../../styles/variables";
 
-.background {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.visible {
+  .loader-image {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 333;
 
-  margin-top: 70px;
-  margin-right: auto;
-  margin-left: auto;
+    width: 150px;
+    height: 150px;
+  }
 
-  width: 560px;
-  height: 360px;
-  background-color: rgba(246, 244, 244, 0.9);
-  border-radius: 20px;
-}
+  @media screen and (max-width: $before-tablet-breakpoint) {
+    & .background {
+      position: fixed;
+      bottom: 0;
 
-.loader-image {
-  width: 150px;
-  height: 150px;
+      width: 100vw;
+      height: 100vh;
+      padding-top: 50vh;
+
+      background-image: url("../../assets/images/mobile-background.png");
+      background-repeat: no-repeat;
+      background-size: 100% 50vh;
+      background-attachment: fixed;
+      background-position: bottom;
+    }
+
+    .loader-image {
+      bottom: 15vh;
+    }
+  }
+
+  @media screen and (min-width: $tablet-breakpoint) {
+    & .background {
+      margin-top: 70px;
+      margin-right: auto;
+      margin-left: auto;
+      padding: 0;
+
+      width: 560px;
+      height: 360px;
+      background-color: $light-additional-background-color-opacity90;
+      border-radius: 20px;
+    }
+
+    .loader-image {
+      top: 236px;
+    }
+  }
 }
