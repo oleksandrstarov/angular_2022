@@ -59,3 +59,10 @@
 .dark-mode {
     fill: $dark-text-color;
 }
+
+@media screen and (max-width: $desktop-breakpoint) {
+    .favorit-item-main-mobile {
+       display: none;
+    }
+  }
+  
