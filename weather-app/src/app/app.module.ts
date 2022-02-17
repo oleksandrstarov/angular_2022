@@ -6,6 +6,7 @@ import { HeaderComponent } from './header/header.component';
 import { TestComponent } from './test/test.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoaderComponent } from './loader/loader.component';
+import { FovoritesListComponent } from './fovorites-list/fovorites-list.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { LoaderComponent } from './loader/loader.component';
     HeaderComponent,
     TestComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    FovoritesListComponent
   ],
   imports: [
     BrowserModule,

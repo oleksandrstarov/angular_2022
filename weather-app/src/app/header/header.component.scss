@@ -48,8 +48,6 @@
 // this is a block-stub, until component 'favourite list' is created
 .favourite-list-block {
   display: flex;
-  justify-content: center;
-
   width: 20px;
   height: 20px;
 
@@ -123,7 +121,6 @@
     width: 350px;
     height: 20px;
 
-    border-bottom: 1px solid $light-text-color;
   }
 }
 
