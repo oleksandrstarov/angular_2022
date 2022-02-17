@@ -41,7 +41,7 @@
     color: $light-text-color;
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: $before-tablet-breakpoint) {
     .location {
         font-size: 40px;
         line-height: 43px;
@@ -69,9 +69,12 @@
         width: 180px;
         border-radius: 50px;
     }
+    .bg-img {
+        background-image: url(../../assets/images/mobile-background.png);
+    }
 }
 
-@media screen and (min-width: 481px) {
+@media screen and (min-width: $tablet-breakpoint) {
     .main-board {
         height: 361px;
         width: 561px;
@@ -121,9 +124,15 @@
         color: $dark-text-color;
     }
     
-    @media screen and (min-width: 481px) {
+    @media screen and (min-width: $desktop-breakpoint) {
         .main-board {
             background-color: $dark-background-color;
         }
     }
+    @media screen and (max-width: $before-tablet-breakpoint) {
+        .bg-img {
+            background-image: url("../../assets/images/dark-mobile-background.png");
+        }
+    }
+    
 }
