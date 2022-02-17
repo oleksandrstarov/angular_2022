@@ -10,6 +10,10 @@
     width: $mobile-breakpoint;
   }
 
+  @media screen and (min-width: $tablet-breakpoint) {
+    width: $tablet-breakpoint;
+  }
+
   @media screen and (min-width: $desktop-breakpoint) {
     width: $desktop-breakpoint;
   }
