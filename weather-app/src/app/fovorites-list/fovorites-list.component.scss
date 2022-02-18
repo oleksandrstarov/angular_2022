@@ -1,0 +1,68 @@
+@import "../../styles/variables";
+@import "../../styles/container";
+
+.favorit-item-main {
+    padding: 0 10px;
+}
+
+.favorite-list {
+    position: relative;
+}
+
+.favorit-list-additional {
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 80px;
+    padding: 10px;
+    background-color: $light-background-color;
+    border-right: 1px solid $light-text-color;
+    border-bottom: 1px solid $light-text-color;
+    border-left: 1px solid $light-text-color;
+}
+
+.favorit-list-additional::after {
+    content: ' ';
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 12px 12px 12px;
+    border-color: transparent transparent $light-background-color transparent;
+    position: absolute;
+    top: -12px;
+    left: 10px;
+}
+
+.favorit-item-additional {
+    width: 250px;
+    height: 40px;
+    padding: 20px;
+    background-color: $light-background-color;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.favorit-list-main {
+    display: flex;
+}
+
+.favorit-item-main-star {
+    position: relative;
+    top: -2px;
+}
+
+.light-mode {
+    fill: $light-text-color;
+}
+
+.dark-mode {
+    fill: $dark-text-color;
+}
+
+@media screen and (max-width: $desktop-breakpoint) {
+    .favorit-item-main-mobile {
+       display: none;
+    }
+  }
+  
