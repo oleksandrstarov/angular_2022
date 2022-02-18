@@ -13,6 +13,11 @@ export class FovoritesListComponent {
   constructor() { }
 
   showFavoritList() {
+    if(this.fovoritList.length)
     this.favoritListState = !this.favoritListState;
+  }
+
+  removeFavotiteItem(i:number) {
+    this.fovoritList.splice(i,1);
   }
 }
