@@ -8,6 +8,8 @@ import { TestComponent } from './test/test.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoaderComponent } from './loader/loader.component';
 import { FovoritesListComponent } from './fovorites-list/fovorites-list.component';
+import { DayForecastComponent } from './day-forecast/day-forecast.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,8 @@ import { FovoritesListComponent } from './fovorites-list/fovorites-list.componen
     LandingPageComponent,
     FooterComponent,
     LoaderComponent,
-    FovoritesListComponent
+    FovoritesListComponent,
+    DayForecastComponent
   ],
   imports: [
     BrowserModule,

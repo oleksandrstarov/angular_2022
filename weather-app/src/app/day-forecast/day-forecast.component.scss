@@ -1,0 +1,195 @@
+@import "../../styles/styles.scss";
+@import "../../styles/variables";
+
+.main-board {
+    width: 80%;
+    height: 5%;
+    // display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+    background-color: $light-background-color;
+    border-radius: 20px;
+    @media screen and (max-width: $before-tablet-breakpoint) {
+        display: none;
+    }
+}
+
+.title-table {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100px;
+    align-items: center;
+    background-color: $light-additional-background-color;
+    border-radius: 20px 20px 0 0;
+}
+
+.location {
+    font-size: 50px;
+    font-weight: 500;
+    color: $light-text-color;
+}
+
+.day-time {
+    font-size: 30px;
+    font-weight: 400;
+    color: $light-text-color;
+}
+
+.img-star {
+    width: 30px;
+    height: 30px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: solid 1px $light-text-color; 
+}
+
+
+table td {
+    font-weight: 400;
+    font-size: 24px;
+    color: $light-text-color;
+    width: 4%;
+    border-right: solid 1px $light-text-color; 
+}
+
+table td:last-child {
+    border-right: none;
+}
+
+table tr:first-child{
+    border-bottom: solid 1px $light-text-color; 
+}
+
+.border-right {
+    border-right: solid 1px $light-text-color; 
+}
+
+#weather-paramenters {
+    font-weight: 500;
+    font-size: 24px;
+    color: $light-text-color;
+    padding-left: 20px;
+}
+
+table tr {
+    font-size: 20px;
+    border: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.button-position {
+    padding: 20px;
+    text-align: center;
+}
+
+.dark-mode {
+    .title-table {
+        background-color: $dark-additional-background-color;
+        .location, .day-time {
+            color: $dark-text-color;
+        }
+    };
+    .border {
+        color: $dark-text-color;
+    }
+
+    .main-board, table td {
+        background-color: $dark-background-color;
+        color: $dark-text-color;
+    };
+
+    #weather-paramenters {
+        color: $dark-text-color;
+    }
+}
+
+//mobile
+.main-board-mobile {
+    display: flex;
+    justify-content: center;
+
+    @media screen and (min-width: $tablet-breakpoint) {
+        display: none;
+    }
+
+    table {
+        border-radius: 0 0 20px 20px;
+    }
+    .forecast-info {
+        width: 90%;
+        text-align: center;
+        margin: 70px 20px 20px 10px;
+        .title {
+            background-color: $light-additional-background-color;
+            border-radius: 20px 20px 0 0;
+            display: grid;
+            grid-template-columns: 10fr 2fr;
+            .main-info {
+                text-align: left;
+                padding-left: 25px;
+                padding-top: 25px;
+                color: $light-text-color;
+                .location {
+                    font-size: 36px;
+                    font-weight: 500;
+                }
+                .date {
+                    font-size: 30px;
+                    font-weight: 400;
+                }
+            }
+            .star-icon {
+                padding-top: 25px;
+            }
+        }
+        table {
+            background-color: $light-background-color;
+            height: 500px;
+            .border-none {
+                border: 0;
+            }
+        }
+    }
+    .icon-position {
+        text-align: -webkit-center;
+        .weather-icon {
+            width: 55px;
+            height: 40px;
+        }
+    }
+    
+}
+
+
+.dark-mode {
+    .main-board-mobile {
+        .forecast-info {
+            .title {
+                background-color: $dark-additional-background-color;
+                border-radius: 20px 20px 0 0;
+    
+                .main-info {
+                    color: $dark-text-color;
+                }
+            }
+
+            // .table {
+            //     background-color: $dark-additional-background-color;
+            //     color: $dark-text-color;
+            //     border-radius: 0 0 20px 20px;
+            //     .border-none {
+            //         border: 0;
+            //     }
+            // }
+        }
+    }
+
+}

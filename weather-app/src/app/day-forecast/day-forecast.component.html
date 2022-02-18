@@ -1,0 +1,175 @@
+<div [ngClass]="{'dark-mode': isDarkMode}">
+    <div class="main-board">
+        <div class="title-table">
+            <span class="day-time">{{currentDay}}, {{currentTime}}</span>
+            <span class="location">{{currentCity}}, {{currentCountry}}</span>
+            <span><img src='../../assets/images/icons/star-dark-checked.svg' alt="star"></span>
+        </div>
+    <table>
+        <tr class="border">
+          <th class="border-right"></th>
+          <th class="border-right">0:00</th>
+          <th class="border-right">3:00</th>
+          <th class="border-right">6:00</th>
+          <th class="border-right">9:00</th>
+          <th class="border-right">12:00</th>
+          <th class="border-right">15:00</th>
+          <th class="border-right">18:00</th>
+          <th class="border-right">21:00</th>
+        </tr>
+        <tr>
+            <td class="text-center"></td>
+            <td class="text-center"><img src={{curentWeatherIconUrl}} alt="current weather at 0:00"></td>
+            <td class="text-center"><img src={{curentWeatherIconUrl}} alt="current weather at 3:00"></td>
+            <td class="text-center"><img src={{curentWeatherIconUrl}} alt="current weather at 6:00"></td>
+            <td class="text-center"><img src={{curentWeatherIconUrl}} alt="current weather at 9:00"></td>
+            <td class="text-center"><img src={{curentWeatherIconUrl}} alt="current weather at 12:00"></td>
+            <td class="text-center"><img src={{curentWeatherIconUrl}} alt="current weather at 15:00"></td>
+            <td class="text-center"><img src={{curentWeatherIconUrl}} alt="current weather at 18:00"></td>
+            <td class="text-center"><img src={{curentWeatherIconUrl}} alt="current weather at 21:00"></td>
+        </tr>
+        <tr>
+            <td id="weather-paramenters">Temp, &deg;C</td>
+          <td class="text-center">8</td>
+          <td class="text-center">8</td>
+          <td class="text-center">8</td>
+          <td class="text-center">8</td>
+          <td class="text-center">8</td>
+          <td class="text-center">8</td>
+          <td class="text-center">8</td>
+          <td class="text-center">8</td>
+        </tr>
+        <tr>
+          <td id="weather-paramenters">Feels, &deg;C</td>
+          <td class="text-center">10</td>
+          <td class="text-center">10</td>
+          <td class="text-center">10</td>
+          <td class="text-center">10</td>
+          <td class="text-center">10</td>
+          <td class="text-center">10</td>
+          <td class="text-center">10</td>
+          <td class="text-center">10</td>
+        </tr>
+        <tr>
+          <td id="weather-paramenters">Press, mmGH</td>
+          <td class="text-center">990</td>
+          <td class="text-center">990</td>
+          <td class="text-center">990</td>
+          <td class="text-center">990</td>
+          <td class="text-center">990</td>
+          <td class="text-center">990</td>
+          <td class="text-center">990</td>
+          <td class="text-center">990</td>
+        </tr>
+        <tr>
+          <td id="weather-paramenters">Humidity, %</td>
+          <td class="text-center">40</td>
+          <td class="text-center">40</td>
+          <td class="text-center">40</td>
+          <td class="text-center">40</td>
+          <td class="text-center">40</td>
+          <td class="text-center">40</td>
+          <td class="text-center">40</td>
+          <td class="text-center">40</td>
+        </tr>
+        <tr>
+          <td id="weather-paramenters">Wind, m/s</td>
+          <td class="text-center">55</td>
+          <td class="text-center">55</td>
+          <td class="text-center">55</td>
+          <td class="text-center">55</td>
+          <td class="text-center">55</td>
+          <td class="text-center">55</td>
+          <td class="text-center">55</td>
+          <td class="text-center">55</td>
+        </tr>
+      </table>
+    </div>
+    <div class="main-board-mobile">
+        <div class="forecast-info">
+            <div class="title">
+                <div class="main-info">
+                    <div class="location">{{currentCity}}</div>
+                    <div class="location">{{currentCountry}}</div>
+                    <div class="date">{{currentDay}}, {{currentTime}}</div>
+                </div>
+                <div class="star-icon"><img src='../../assets/images/icons/star-dark-checked.svg' alt="star"></div>
+            </div>
+            <table class="table">
+                <tr class="border-none">
+                    <td class="border-none"></td>
+                    <td class="border-none"></td>
+                    <td class="border-none"></td>
+                    <td class="border-none">Press</td>
+                    <td class="border-none">Wind</td>
+                </tr>
+                <tr>
+                    <td>0:00</td>
+                    <td class="icon-position"><img src={{curentWeatherIconUrl}} alt="current weather at 0:00" class="weather-icon"></td>
+                    <td>8&deg;C</td>
+                    <td>980</td>
+                    <td>29</td>
+                </tr>
+                <tr>
+                    <td>3:00</td>
+                    <td class="icon-position"><img src={{curentWeatherIconUrl}} alt="current weather at 3:00" class="weather-icon"></td>
+                    <td>6&deg;C</td>
+                    <td>980</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>6:00</td>
+                    <td class="icon-position"><img src={{curentWeatherIconUrl}} alt="current weather at 6:00" class="weather-icon"></td>
+                    <td>8&deg;C</td>
+                    <td>980</td>
+                    <td>26</td>
+                </tr>
+                <tr>
+                    <td>9:00</td>
+                    <td class="icon-position"><img src={{curentWeatherIconUrl}} alt="current weather at 9:00" class="weather-icon"></td>
+                    <td>4&deg;C</td>
+                    <td>1012</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>12:00</td>
+                    <td class="icon-position"><img src={{curentWeatherIconUrl}} alt="current weather at 12:00" class="weather-icon"></td>
+                    <td>3&deg;C</td>
+                    <td>1022</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>15:00</td>
+                    <td class="icon-position"><img src={{curentWeatherIconUrl}} alt="current weather at 15:00" class="weather-icon"></td>
+                    <td>4&deg;C</td>
+                    <td>1012</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>18:00</td>
+                    <td class="icon-position"><img src={{curentWeatherIconUrl}} alt="current weather at 18:00" class="weather-icon"></td>
+                    <td>8&deg;C</td>
+                    <td>980</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>21:00</td>
+                    <td class="icon-position"><img src={{curentWeatherIconUrl}} alt="current weather at 21:00" class="weather-icon"></td>
+                    <td>10&deg;C</td>
+                    <td>980</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td class="border-none"></td>
+                    <td class="border-none"></td>
+                    <td class="border-none"></td>
+                    <td class="border-none">mmGh</td>
+                    <td class="border-none">m/s</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="button-position">
+        <button class="forecast">Week forecast</button>
+    </div> 
+</div>
