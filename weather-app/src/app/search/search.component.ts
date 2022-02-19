@@ -13,4 +13,11 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  searchLocation(input: string = this.defaultCity) {
+    console.log(`search ${input}`);
+  }
+
+  autocomplete(input: any) {
+    console.log(`autocompeate ${input.value}`);
+  }
 }
