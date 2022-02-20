@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit {
     console.log(`search ${input}`);
   }
 
-  autocomplete(input: any) {
-    console.log(`autocompeate ${input.value}`);
+  autocomplete(input: string) {
+    console.log(`autocompeate ${input}`);
   }
 }

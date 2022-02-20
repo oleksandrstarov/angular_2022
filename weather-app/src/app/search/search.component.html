@@ -1,6 +1,6 @@
 <div class="input-container">
     <input type="text" placeholder="Enter a city name..." class="search-block" #searchInput
-        (input)="autocomplete($event.target)" (keydown.enter)="searchLocation(searchInput.value)">
+        (input)="autocomplete(searchInput.value)" (keydown.enter)="searchLocation(searchInput.value)">
 
     <svg class="search-icon" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg"
         (click)="searchLocation(searchInput.value)">
