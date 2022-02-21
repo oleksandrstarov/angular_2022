@@ -14,10 +14,14 @@ export class SearchComponent implements OnInit {
   }
 
   searchLocation(input: string = this.defaultCity) {
-    console.log(`search ${input}`);
+    if (input) {
+      console.log(`search ${input}`);
+    }
   }
 
   autocomplete(input: string) {
-    console.log(`autocompeate ${input}`);
+    if (input.length > 2) {
+      console.log(`autocompeate ${input}`);
+    }
   }
 }
