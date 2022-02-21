@@ -1,18 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ThemeSwitchService } from '../theme-switch.service';
 
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
+  providers: [ThemeSwitchService]
 })
-export class HeaderComponent implements OnInit {
-  isDarkMode = false;
+export class HeaderComponent {
+  // isDarkMode = false;
 
-  constructor() { 
+  @Input() isDarkMode: any;
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onClick = new EventEmitter();
+
+  constructor() {
   }
 
-  ngOnInit(): void {
+  btnClick() {
+    this.onClick.emit();
+    console.log(this.isDarkMode)
   }
-
 }

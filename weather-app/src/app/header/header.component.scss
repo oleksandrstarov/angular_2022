@@ -22,16 +22,30 @@
 }
 
 .logo {
+  position: relative;
   display: flex;
   align-items: center;
 
   height: 100%;
 
-  font-size: 16px;
+  font-size: 24px;
   line-height: 1.25;
   text-transform: uppercase;
 
   color: $light-text-color;
+
+  .logo-image {
+    position: absolute;
+    // left: 47px;
+    // width: 80px;
+    width: 60px;
+    left: 120px;
+  }
+
+  .logo-text {
+    // margin-left: 30px;
+    margin-left: 50px;
+  }
 }
 
 // this is a block-stub, until component 'search form' is created
@@ -50,14 +64,7 @@
   display: flex;
   width: 20px;
   height: 20px;
-
-  .icon.dark {
-    display: none;
-  }
-
-  .icon.light {
-    display: block;
-  }
+  border-bottom: 1px solid #ccc;
 }
 
 .language-switcher {
@@ -80,6 +87,11 @@
   align-items: center;
 
   height: 100%;
+
+  button {
+    border: none;
+    background-color: transparent;
+  }
 
   .icon {
     width: 30px;
@@ -120,7 +132,6 @@
   .favourite-list-block {
     width: 350px;
     height: 20px;
-
   }
 }
 
@@ -128,39 +139,27 @@
   &.header {
     color: $dark-text-color;
     background-color: $dark-background-color;
-  }
 
-  .logo {
-    color: $dark-text-color;
-  }
-
-  .search-block {
-    border: 1px solid $dark-text-color;
-  }
-
-  .favourite-list-block {
-    border-bottom: 1px solid $dark-text-color;
-
-    .icon.light {
-      display: none;
+    .logo {
+      color: $dark-text-color;
     }
 
-    .icon.dark {
-      display: block;
-    }
-  }
-
-  .language-switcher .inactive {
-    color: $dark-additional-text-color;
-  }
-
-  .theme-switcher {
-    .icon.light {
-      display: none;
+    .search-block {
+      border: 1px solid $dark-text-color;
     }
 
-    .icon.dark {
-      display: block;
+    .language-switcher .inactive {
+      color: $dark-additional-text-color;
+    }
+
+    .theme-switcher {
+      .icon.light {
+        display: none;
+      }
+
+      .icon.dark {
+        display: block;
+      }
     }
   }
 }
