@@ -1,0 +1,166 @@
+@import "../../styles/variables";
+@import "../../styles/container";
+
+.header {
+  width: 100vw;
+  height: 60px;
+
+  color: $light-text-color;
+  background-color: $light-background-color;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+
+  // presses the left and right elements to the edges of the container, the others are spaced equidistant from each other
+  // convenient in our case, because we don't yet know which size the list of saved cities will
+  // it also allows to make the layout "responsive" on the width of the screen up to 480px
+  justify-content: space-between;
+
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  font-size: 16px;
+  line-height: 1.25;
+  text-transform: uppercase;
+
+  color: $light-text-color;
+}
+
+// this is a block-stub, until component 'search form' is created
+.search-block {
+  width: 50vw;
+  height: 30px;
+
+  border: 1px solid $light-text-color;
+  border-radius: 50px;
+
+  cursor: pointer;
+}
+
+// this is a block-stub, until component 'favourite list' is created
+.favourite-list-block {
+  display: flex;
+  width: 20px;
+  height: 20px;
+
+  .icon.dark {
+    display: none;
+  }
+
+  .icon.light {
+    display: block;
+  }
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  font-size: 16px;
+  line-height: 1.25;
+
+  .inactive {
+    color: $light-additional-text-color;
+  }
+}
+
+.theme-switcher {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  height: 100%;
+
+  .icon {
+    width: 30px;
+    height: 16px;
+    margin-left: 5px;
+  }
+
+  .icon.dark {
+    display: none;
+  }
+
+  .icon.light {
+    display: block;
+  }
+}
+
+@media screen and (min-width: $mobile-breakpoint) {
+  .search-block {
+    width: 260px;
+  }
+}
+
+@media screen and (max-width: $before-tablet-breakpoint) {
+  .logo {
+    display: none;
+  }
+
+  .theme-switcher_description {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+  .search-block {
+    width: 400px;
+  }
+
+  .favourite-list-block {
+    width: 350px;
+    height: 20px;
+
+  }
+}
+
+.dark-mode {
+  &.header {
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+  }
+
+  .logo {
+    color: $dark-text-color;
+  }
+
+  .search-block {
+    border: 1px solid $dark-text-color;
+  }
+
+  .favourite-list-block {
+    border-bottom: 1px solid $dark-text-color;
+
+    .icon.light {
+      display: none;
+    }
+
+    .icon.dark {
+      display: block;
+    }
+  }
+
+  .language-switcher .inactive {
+    color: $dark-additional-text-color;
+  }
+
+  .theme-switcher {
+    .icon.light {
+      display: none;
+    }
+
+    .icon.dark {
+      display: block;
+    }
+  }
+}
