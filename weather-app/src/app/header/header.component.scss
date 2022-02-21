@@ -48,17 +48,6 @@
   }
 }
 
-// this is a block-stub, until component 'search form' is created
-.search-block {
-  width: 50vw;
-  height: 30px;
-
-  border: 1px solid $light-text-color;
-  border-radius: 50px;
-
-  cursor: pointer;
-}
-
 // this is a block-stub, until component 'favourite list' is created
 .favourite-list-block {
   display: flex;
@@ -109,9 +98,7 @@
 }
 
 @media screen and (min-width: $mobile-breakpoint) {
-  .search-block {
-    width: 260px;
-  }
+
 }
 
 @media screen and (max-width: $before-tablet-breakpoint) {
@@ -125,10 +112,7 @@
 }
 
 @media screen and (min-width: $desktop-breakpoint) {
-  .search-block {
-    width: 400px;
-  }
-
+ 
   .favourite-list-block {
     width: 350px;
     height: 20px;
@@ -140,8 +124,15 @@
     color: $dark-text-color;
     background-color: $dark-background-color;
 
-    .logo {
-      color: $dark-text-color;
+  .logo {
+    color: $dark-text-color;
+  }
+
+  .favourite-list-block {
+    border-bottom: 1px solid $dark-text-color;
+
+    .icon.light {
+      display: none;
     }
 
     .search-block {
@@ -161,5 +152,6 @@
         display: block;
       }
     }
+  }
   }
 }

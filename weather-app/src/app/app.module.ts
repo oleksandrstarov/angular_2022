@@ -5,10 +5,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { TestComponent } from './test/test.component';
+import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoaderComponent } from './loader/loader.component';
 import { FovoritesListComponent } from './fovorites-list/fovorites-list.component';
 import { DayForecastComponent } from './day-forecast/day-forecast.component';
+
 
 
 @NgModule({
@@ -16,6 +18,7 @@ import { DayForecastComponent } from './day-forecast/day-forecast.component';
     AppComponent,
     HeaderComponent,
     TestComponent,
+    SearchComponent,
     LandingPageComponent,
     FooterComponent,
     LoaderComponent,
@@ -30,4 +33,4 @@ import { DayForecastComponent } from './day-forecast/day-forecast.component';
   bootstrap: [AppComponent]
 })
 export class AppModule {
- }
+}
