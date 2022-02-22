@@ -55,39 +55,24 @@ img {
   }
 }
 
-// .wrapper.dark-mode {
-//   .header {
-//     color: $dark-text-color;
-//     background-color: $dark-background-color;
+.wrapper.dark-mode {
+  .header {
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+    border-bottom: 1px solid $dark-text-color;
 
-//     .logo {
-//       color: $dark-text-color;
-//     }
+    .language-switcher .inactive {
+      color: $dark-additional-text-color;
+    }
 
-//     .favourite-list-block {
-//       border-bottom: 1px solid $dark-text-color;
+    .theme-switcher__marker {
+      background-color: $light-text-color;
+    }
+  }
 
-//       .icon.light {
-//         display: none;
-//       }
-//     }
-
-//     .search-block {
-//       border: 1px solid $dark-text-color;
-//     }
-
-//     .language-switcher .inactive {
-//       color: $dark-additional-text-color;
-//     }
-
-//     .theme-switcher {
-//       .icon.light {
-//         display: none;
-//       }
-
-//       .icon.dark {
-//         display: block;
-//       }
-//     }
-//   }
-// }
+  .footer {
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+    border-top: 1px solid $dark-text-color;
+  }
+}

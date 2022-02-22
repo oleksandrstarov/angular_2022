@@ -1,21 +1,29 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { LocalStorageThemeService } from 'src/services/local-storage/local-storage-theme.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  encapsulation: ViewEncapsulation.None
 })
   
-export class HeaderComponent {
-
+export class HeaderComponent implements OnInit{
   // eslint-disable-next-line @angular-eslint/no-output-on-prefix
-  @Output() onClick = new EventEmitter();
+  @Output() onThemeSwitcherClick = new EventEmitter();
 
-  constructor() {
+  isChecked: boolean = false;
+
+  constructor(public localStorageThemeService: LocalStorageThemeService) {
   }
 
-  btnClick() {
-    this.onClick.emit();
+  onThemeSwitcherButtonClick() {
+    this.onThemeSwitcherClick.emit();
+  }
+
+  ngOnInit() {
+    const currentTheme: string | null = this.localStorageThemeService.getCurrentTheme();
+    if (currentTheme === 'dark') {
+      this.isChecked = true;
+    }
   }
 }

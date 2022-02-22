@@ -1,31 +1,35 @@
 <header class="header" >
     <div class="container header-container">
-        <!-- <a href="#" class="logo">Weat<img src="../../assets/images/lightning.svg" class="logo-image"/><span class="logo-text">er</span></a> -->
-        <a href="#" class="logo">Weather<img src="../../assets/images/loader.svg" class="logo-image" /><span class="logo-text">app</span></a>
+        <a href="#" class="logo">
+            <div class="logo--wrapper">
+                <span class="logo--text">S</span>
+                <img src="../../assets/images/icons/logo-sun.svg" class="logo--image" />
+                <span class="logo--text">ul</span>
+            </div>
+            <span>Weather</span>
+        </a>
 
         <app-search></app-search>
+        
         <div class="favourite-list-block">
             <app-fovorites-list></app-fovorites-list>
         </div>
 
         <div class="language-switcher"><span>EN</span> | <span class="inactive">UA</span></div>
+
         <div class="theme-switcher">
-            <p class="theme-switcher_description">Dark Mode</p>
-
-            <!-- WE STILL NEED TO DISCUSS HOW TO USE SVG ICONS AND REPLACE BROKEN ICONS -->
-
-            <!-- <svg class="icon" width="30" height="16">
-                <use href="../../assets/images/icons/sprite.svg#icon-switch-theme-light" />
-            </svg> -->
-
-            <!-- <svg width="60" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1" y="1" width="58" height="30" rx="15" fill="#fff" stroke="#5A5A5A" stroke-width="2" />
-                <circle cx="16" cy="16" r="12" fill="#5A5A5A" />
-            </svg> -->
-            <button (click)="btnClick()"><img class="icon light" src="../../assets/images/icons/switch-theme-light.svg" />
-            <img class="icon dark" src="../../assets/images/icons/switch-theme-dark.svg" /></button>
-            <!-- <img class="icon light" src="../../assets/images/icons/switch-theme-light.svg" />
-            <img class="icon dark" src="../../assets/images/icons/switch-theme-dark.svg" /> -->
+            <svg class="theme-switcher__icon ">
+                <use  href="../../assets/images/icons/sprite.svg#sun"></use>
+            </svg>
+            <div class="theme-switcher__control" >
+                <input (click)="onThemeSwitcherButtonClick()" [checked]="isChecked" class="theme-switcher__toggle" type="checkbox" name="theme" id="theme-switcher-toggle"/>
+                <label class="theme-switcher__track" for="theme-switcher-toggle"> </label>
+                <div class="theme-switcher__marker"></div>
+            </div>
+            <svg class="theme-switcher__icon theme-switcher__icon--moon">
+                <use href="../../assets/images/icons/sprite.svg#moon"></use>
+            </svg>
         </div>
+
     </div>
 </header>

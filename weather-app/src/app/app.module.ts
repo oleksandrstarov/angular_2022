@@ -10,6 +10,7 @@ import { FooterComponent } from './footer/footer.component';
 import { LoaderComponent } from './loader/loader.component';
 import { FovoritesListComponent } from './fovorites-list/fovorites-list.component';
 import { DayForecastComponent } from './day-forecast/day-forecast.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -27,7 +28,8 @@ import { DayForecastComponent } from './day-forecast/day-forecast.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

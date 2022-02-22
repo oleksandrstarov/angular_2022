@@ -5,32 +5,23 @@
   position: fixed;
   bottom: 0;
 
-  display: flex;
-  align-items: center;
-
   width: 100vw;
   height: 60px;
 
   color: $light-text-color;
-  text-align: center;
-
   background-color: $light-background-color;
+
+  border-top: 1px solid $light-text-color;
 }
 
-@media screen and (max-width: $before-tablet-breakpoint) {
-  .footer {
-    border-top: 1px solid $light-text-color;
-  }
-}
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-.dark-mode {
-  .footer {
-    color: $dark-text-color;
-    background-color: $dark-background-color;
-  }
-  @media screen and (max-width: $before-tablet-breakpoint) {
-    .footer {
-      border-top: 1px solid $dark-text-color;
-    }
+  height: 100%;
+
+  .footer--text:not(:last-child) {
+    margin-right: 10px;
   }
 }
