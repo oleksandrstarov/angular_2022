@@ -98,7 +98,6 @@
 }
 
 @media screen and (min-width: $mobile-breakpoint) {
-
 }
 
 @media screen and (max-width: $before-tablet-breakpoint) {
@@ -112,27 +111,27 @@
 }
 
 @media screen and (min-width: $desktop-breakpoint) {
- 
   .favourite-list-block {
     width: 350px;
     height: 20px;
   }
 }
 
-.dark-mode {
-  &.header {
+.wrapper.dark-mode {
+  .header {
     color: $dark-text-color;
     background-color: $dark-background-color;
 
-  .logo {
-    color: $dark-text-color;
-  }
+    .logo {
+      color: $dark-text-color;
+    }
 
-  .favourite-list-block {
-    border-bottom: 1px solid $dark-text-color;
+    .favourite-list-block {
+      border-bottom: 1px solid $dark-text-color;
 
-    .icon.light {
-      display: none;
+      .icon.light {
+        display: none;
+      }
     }
 
     .search-block {
@@ -152,6 +151,5 @@
         display: block;
       }
     }
-  }
   }
 }

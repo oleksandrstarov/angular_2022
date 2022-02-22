@@ -54,3 +54,40 @@ img {
     color: $dark-text-color;
   }
 }
+
+// .wrapper.dark-mode {
+//   .header {
+//     color: $dark-text-color;
+//     background-color: $dark-background-color;
+
+//     .logo {
+//       color: $dark-text-color;
+//     }
+
+//     .favourite-list-block {
+//       border-bottom: 1px solid $dark-text-color;
+
+//       .icon.light {
+//         display: none;
+//       }
+//     }
+
+//     .search-block {
+//       border: 1px solid $dark-text-color;
+//     }
+
+//     .language-switcher .inactive {
+//       color: $dark-additional-text-color;
+//     }
+
+//     .theme-switcher {
+//       .icon.light {
+//         display: none;
+//       }
+
+//       .icon.dark {
+//         display: block;
+//       }
+//     }
+//   }
+// }

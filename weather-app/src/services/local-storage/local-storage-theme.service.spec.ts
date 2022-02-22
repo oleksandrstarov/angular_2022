@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ThemeSwitchService } from './theme-switch.service';
+import { LocalStorageThemeService } from './local-storage-theme.service';
 
 describe('ThemeSwitchService', () => {
-  let service: ThemeSwitchService;
+  let service: LocalStorageThemeService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ThemeSwitchService);
+    service = TestBed.inject(LocalStorageThemeService);
   });
 
   it('should be created', () => {
