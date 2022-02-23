@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { byCountry } from 'country-code-lookup';
+import { WeatherService } from '../services/weather.service';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,17 +8,39 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss', '../../styles/_container.scss']
 })
 export class LandingPageComponent implements OnInit {
+  @Input() currentLocationCoords: any;
+  @Input() defaultCity: string = '';
+
+  public currentCity: string = '';
+  public currentCountry: string = '';
+  public currentDay: string = '';
+  public currentTime: string = ''; 
+  public currentDegrees: any = ''; 
+  public curentWeatherIconUrl = '';
+ 
   isDarkMode = false;
-  currentCity = 'Ivano-Frankivsk';
-  currentCountry = 'UA';
-  currentDay = 'Monday';
-  currentTime = '06:00';
-  currentDegrees = '+12';
-  curentWeatherIconUrl = 'https://raw.githubusercontent.com/basmilius/weather-icons/029d142b34871bcbc90d7cd46081c50310c831c5/production/fill/svg/overcast-day-fog.svg';
-  
-  constructor() {
+  weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  constructor(private weatherService: WeatherService) {
   }
 
   ngOnInit(): void {
+    const locationQuery: string = this.currentLocationCoords ?? this.defaultCity;
+    this.weatherService.getCurrentWeather(locationQuery).subscribe((data: any) => {
+      const currentDate = data.location.localtime.split(' ')[0];
+      const currentDayIndex = new Date(currentDate).getDay();
+      this.currentCity = data.location.name;
+      this.currentCountry = byCountry(data.location.country)?.iso2 ?? 'null';
+      this.currentDay = this.weekday[currentDayIndex + 1];
+      this.currentTime = data.location.localtime.split(' ')[1];
+      this.currentDegrees = data.current.temp_c > 0 ? `+${Math.round(data.current.temp_c)}` : Math.round(data.current.temp_c);
+      this.curentWeatherIconUrl = this.getConditionIconUrl(this.currentTime, data.current.condition.code);
+    });
+  }
+
+  private getConditionIconUrl(time: string, conditionCode: number): string {
+    const currentHour = parseInt(time);
+    const isDay: boolean = currentHour >= 4 && currentHour <= 20;
+    return `../../assets/images/weather-icons/${isDay ? 'day' : 'night'}/${conditionCode}.svg`
   }
 }
