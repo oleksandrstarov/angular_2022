@@ -17,7 +17,7 @@ export class LandingPageComponent implements OnInit {
   public currentDegrees: any = ''; 
   public curentWeatherIconUrl = '';
  
-  isDarkMode = false;
+  isDarkMode = true;
   weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
   constructor() {
