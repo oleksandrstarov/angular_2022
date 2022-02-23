@@ -2,98 +2,99 @@
 @import "../../styles/container";
 
 .favorit-item-main {
-    padding: 0 10px;
-    position: relative;
+  padding: 0 10px;
+  position: relative;
 }
 
 .favorit-list-main {
-    position: relative;
+  position: relative;
 }
 
 .favorit-list-main-arrow {
-    position: relative;
+  position: relative;
 }
 
 .favorit-list-main-arrow::after {
-    content: ' ';
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 0 12px 12px 12px;
-    border-color: transparent transparent $light-background-color transparent;
-    position: absolute;
-    top: 50px;
-    left: 10px;
+  content: " ";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12px 12px 12px;
+  border-color: transparent transparent $light-background-color transparent;
+  position: absolute;
+  top: 50px;
+  left: 10px;
 }
 
 .favorite-list {
-    position: relative;
+  position: relative;
 }
 
 .favorit-list-additional {
-    width: auto;
-    height: auto;
-    position: absolute;
-    top: 80px;
-    padding: 10px;
-    background-color: $light-background-color;
-    border-right: 1px solid $light-text-color;
-    border-bottom: 1px solid $light-text-color;
-    border-left: 1px solid $light-text-color;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 80px;
+  padding: 10px;
+  background-color: $light-background-color;
+  border-right: 1px solid $light-text-color;
+  border-bottom: 1px solid $light-text-color;
+  border-left: 1px solid $light-text-color;
 }
 
 .favorit-item-additional {
-    width: 250px;
-    height: 40px;
-    padding: 20px;
-    background-color: $light-background-color;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  width: 250px;
+  height: 40px;
+  padding: 20px;
+  background-color: $light-background-color;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .favorit-list-main {
-    display: flex;
+  display: flex;
 }
 
 .favorit-item-main-star {
-    position: relative;
-    top: -2px;
+  position: relative;
+  top: -2px;
+  left: -10px;
 }
 
 .light-mode {
-    fill: $light-text-color;
+  fill: $light-text-color;
 }
 
 .dark-mode {
-    fill: $dark-text-color;
+  fill: $dark-text-color;
 }
 
 @media screen and (max-width: $desktop-breakpoint) {
-    .favorit-item-main-mobile {
-       display: none;
-    }
+  .favorit-item-main-mobile {
+    display: none;
+  }
 }
 
 @media screen and (max-width: $before-tablet-breakpoint) {
-    .favorit-item-additional {
-        width: 200px;
-    }
+  .favorit-item-additional {
+    width: 200px;
+  }
 }
 
 @media screen and (max-width: 580px) {
-    .favorit-list-additional {
-        left: 50%;
-    }
+  .favorit-list-additional {
+    left: 50%;
+  }
 }
 
-  @media screen and (max-width: $mobile-breakpoint) {
-    .favorit-item-additional {
-        width: 200px;
-        padding: 10px;
-    }
-    
-    .favorit-list-additional {
-        left: 25%;
-    }
+@media screen and (max-width: $mobile-breakpoint) {
+  .favorit-item-additional {
+    width: 200px;
+    padding: 10px;
+  }
+
+  .favorit-list-additional {
+    left: 25%;
+  }
 }

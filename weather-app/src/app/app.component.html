@@ -1,9 +1,9 @@
 <div class="wrapper" [ngClass]="{'dark-mode': isDarkMode}">
   <app-header (onThemeSwitcherClick)="toggleTheme()"></app-header>
-  <app-landing-page [currentLocationCoords]=currentLocationCoords
+  <!-- <app-landing-page [currentLocationCoords]=currentLocationCoords
                     [defaultCity]=defaultCity>
-                  </app-landing-page>
-  <!-- <app-day-forecast></app-day-forecast> -->
+                  </app-landing-page> -->
+  <app-day-forecast></app-day-forecast>
   <!-- <app-loader></app-loader> -->
   <app-footer></app-footer>
 </div>

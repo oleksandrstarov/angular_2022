@@ -39,10 +39,6 @@ img {
 .wrapper.dark-mode {
   .button {
     background-color: $dark-background-color;
-
-    @media screen and (max-width: $before-tablet-breakpoint) {
-      border: 1px solid $dark-text-color;
-    }
   }
 
   .header {
@@ -99,7 +95,7 @@ img {
       }
       .border {
         color: $dark-text-color !important;
-        #weather-parameters {
+        .weather-parameters {
           color: $dark-text-color !important;
         }
         .border-none {
@@ -118,8 +114,11 @@ img {
     }
     .main-board-mobile {
       .forecast-info {
+        background-color: $dark-background-color !important;
+
         .title {
-          background-color: $dark-background-color !important;
+          background-color: $dark-additional-background-color !important;
+          border-bottom: 1px solid $dark-additional-text-color;
         }
         table {
           background-color: $dark-background-color !important;

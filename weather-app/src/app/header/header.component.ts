@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { LocalStorageThemeService } from 'src/services/local-storage/local-storage-theme.service';
+import { LocalStorageThemeService } from 'src/app/services/local-storage/local-storage-theme.service';
 
 @Component({
   selector: 'app-header',
