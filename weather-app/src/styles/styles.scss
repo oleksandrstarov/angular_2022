@@ -36,26 +36,15 @@ img {
   height: auto;
 }
 
-.forecast {
-  border: none;
-  background-color: white;
-  box-shadow: 0 4px 5px rgb(0 0 0 / 25%);
-  color: $light-text-color;
-  height: 35px;
-  width: 220px;
-  border-radius: 50px;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.dark-mode {
-  .forecast {
-    background-color: $dark-background-color;
-    color: $dark-text-color;
-  }
-}
-
 .wrapper.dark-mode {
+  .button {
+    background-color: $dark-background-color;
+
+    @media screen and (max-width: $before-tablet-breakpoint) {
+      border: 1px solid $dark-text-color;
+    }
+  }
+
   .header {
     color: $dark-text-color;
     background-color: $dark-background-color;
@@ -74,5 +63,72 @@ img {
     color: $dark-text-color;
     background-color: $dark-background-color;
     border-top: 1px solid $dark-text-color;
+  }
+
+  .landing-page {
+    color: $dark-text-color;
+
+    .bg-img {
+      .main-board {
+        @media screen and (min-width: $tablet-breakpoint) {
+          background-color: $dark-background-color;
+        }
+      }
+    }
+    @media screen and (max-width: $before-tablet-breakpoint) {
+      .bg-img {
+        background-image: url(../assets/images/dark-mobile-background.png);
+      }
+    }
+  }
+
+  .day-forecast-page {
+    color: $dark-text-color;
+
+    .main-board {
+      background-color: $dark-background-color !important;
+      .title-table {
+        background-color: $dark-additional-background-color !important;
+      }
+    }
+
+    table {
+      border: none !important;
+      .border-left-none {
+        border-left: none !important;
+      }
+      .border {
+        color: $dark-text-color !important;
+        #weather-parameters {
+          color: $dark-text-color !important;
+        }
+        .border-none {
+          border-right: solid 1px $dark-additional-text-color !important;
+        }
+        .border-right {
+          border-right: solid 1px $dark-additional-text-color !important;
+        }
+      }
+    }
+    table td {
+      border-right: solid 1px $dark-additional-text-color !important;
+    }
+    table th {
+      border: solid 1px $dark-additional-text-color !important;
+    }
+    .main-board-mobile {
+      .forecast-info {
+        .title {
+          background-color: $dark-background-color !important;
+        }
+        table {
+          background-color: $dark-background-color !important;
+        }
+      }
+    }
+  }
+
+  .visible.loader {
+    background-color: $dark-additional-background-color-opacity90;
   }
 }

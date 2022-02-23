@@ -21,7 +21,17 @@
 
   height: 100%;
 
-  .footer--text:not(:last-child) {
-    margin-right: 10px;
+  @media screen and (max-width: $before-desktop-breakpoint) {
+    flex-direction: column;
+
+    .footer__text--line {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    .footer__text:not(:last-child) {
+      margin-right: 10px;
+    }
   }
 }

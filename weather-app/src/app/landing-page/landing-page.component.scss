@@ -1,148 +1,110 @@
 @import "../../styles/variables";
+@import "../../styles/button";
 @import "../../styles/styles.scss";
 
-.bg-img {
+.landing-page {
+  color: $light-text-color;
+
+  .bg-img {
     .main-board {
-        .main-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            .location {
-                font-weight: 400;
-            }
-            .location, .weather, .date {
-                color: $light-text-color;
-            }
-            .weather {
-                display: flex;
-                flex-direction: row;
-                .degrees {
-                    font-weight: 400;
-                    font-size: 40px;
-                    align-self: center;
-                }
-            }
-        }
-    }
-    .buttons {
-        margin-left: auto;
-        margin-right: auto;
-        flex-direction: row;
-        justify-content: space-around;
+      .main-info {
         display: flex;
-        .forecast {
-            border: none;
-            background-color: $light-background-color;
-            box-shadow: 0 4px 5px rgb(0 0 0 / 25%);
-            color: $light-text-color;
-        }
-    }
-}
+        flex-direction: column;
+        align-items: center;
 
-@media screen and (max-width: $before-tablet-breakpoint) {
-    .bg-img {
-        position: fixed;
-        bottom: 0;
-        width: 100vw;
-        height: 100vh;
-        padding-top: 50vh;
-        background-image: url("../../assets/images/mobile-background.png");
-        background-repeat: no-repeat;
-        background-size: 100% 50vh;
-        background-attachment: fixed;
-        background-position: bottom;
-        .main-board {
-            @media screen and (max-width: $mobile-breakpoint) {
-                margin-top: 70px;
-            }
-            margin-top: 115px;
-            .location {
-                font-size: 40px;
-                line-height: 43px;
-                @media screen and (max-width: $mobile-breakpoint) {
-                    text-align: center;
-                }
-            }
-            .date {
-                font-size: 20px;
-                line-height: 24px;
-                margin-top: 17px;
-            }
-                .icon-weather {
-                    width: 89px;
-                }
-        }
-        .buttons {
-            margin-top: 33px;
-            width: 390px;
-            font-size: 18px;
-            .forecast {
-                height: 35px;
-                width: 180px;
-                border-radius: 50px;
-            }
-        }
-    }
-}
-
-@media screen and (min-width: $tablet-breakpoint) {
-    .main-board {
-        height: 361px;
-        width: 561px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 70px;
-        background-color: $light-background-color;
-        border-radius: 20px;
         .location {
-            font-size: 50px;
-            line-height: 61px;
-            margin-top: 74px;
+          font-weight: 400;
+        }
+
+        .weather {
+          display: flex;
+          flex-direction: row;
+          .degrees {
+            font-weight: 400;
+            font-size: 40px;
+            align-self: center;
+          }
+        }
+      }
+    }
+
+    .buttons {
+      margin-left: auto;
+      margin-right: auto;
+      flex-direction: row;
+      justify-content: space-around;
+      display: flex;
+    }
+  }
+
+  @media screen and (max-width: $before-tablet-breakpoint) {
+    .bg-img {
+      position: fixed;
+      bottom: 0;
+      width: 100vw;
+      height: 100vh;
+      padding-top: 50vh;
+      background-image: url("../../assets/images/mobile-background.png");
+      background-repeat: no-repeat;
+      background-size: 100% 50vh;
+      background-attachment: fixed;
+      background-position: bottom;
+      .main-board {
+        @media screen and (max-width: $mobile-breakpoint) {
+          margin-top: 70px;
+        }
+        margin-top: 115px;
+        .location {
+          font-size: 40px;
+          line-height: 43px;
+          @media screen and (max-width: $mobile-breakpoint) {
+            text-align: center;
+          }
         }
         .date {
-            font-size: 25px;
-            line-height: 30px;
-            margin-top: 17px;
+          font-size: 20px;
+          line-height: 24px;
+          margin-top: 17px;
         }
-            .icon-weather {
-                width: 134px;
-            }  
+        .icon-weather {
+          width: 89px;
+        }
+      }
+      .buttons {
+        margin-top: 33px;
+        width: 390px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  @media screen and (min-width: $tablet-breakpoint) {
+    .main-board {
+      height: 361px;
+      width: 561px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 70px;
+      background-color: $light-background-color;
+      border-radius: 20px;
+      .location {
+        font-size: 50px;
+        line-height: 61px;
+        margin-top: 74px;
+      }
+      .date {
+        font-size: 25px;
+        line-height: 30px;
+        margin-top: 17px;
+      }
+      .icon-weather {
+        width: 134px;
+      }
     }
     .buttons {
-        margin-top: 45px;
-        width: 561px;
-        .forecast {
-            height: 35px;
-            width: 180px;
-            border-radius: 50px;
-        }
-    }  
-}
-
-.dark-mode {
-    .bg-img {
-        .main-board {
-            @media screen and (min-width: $before-tablet-breakpoint) {
-                background-color: $dark-background-color;
-            }
-            .main-info {
-                .location, .weather, .date {
-                    color: $dark-text-color;
-                }
-            }
-        }
-        .buttons {
-            .forecast {
-                background-color: $dark-background-color;
-                color: $dark-text-color;
-                @media screen and (max-width: $tablet-breakpoint) {
-                    border: solid 1px $dark-text-color; 
-                }
-            }
-        }
-        @media screen and (max-width: $before-tablet-breakpoint) {
-            background-image: url(../../assets/images/dark-mobile-background.png);
-        }
-    }    
+      margin-top: 45px;
+      width: 561px;
+    }
+  }
 }
