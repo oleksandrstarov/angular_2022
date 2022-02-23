@@ -1,8 +1,6 @@
-<div class="wrapper">
+<div class="wrapper" ngClass="{{backgroundClassName}}">
   <app-header></app-header>
-  <app-landing-page [currentLocationCoords]=currentLocationCoords
-                    [defaultCity]=defaultCity>
-  </app-landing-page>
+  <app-landing-page [currentWeatherData]=currentWeatherData></app-landing-page>
   <!-- <app-day-forecast></app-day-forecast> -->
   <!-- <app-loader></app-loader> -->
   <app-footer></app-footer>

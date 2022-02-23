@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { byCountry } from 'country-code-lookup';
-import { WeatherService } from '../services/weather.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-landing-page',
@@ -8,8 +8,7 @@ import { WeatherService } from '../services/weather.service';
   styleUrls: ['./landing-page.component.scss', '../../styles/_container.scss']
 })
 export class LandingPageComponent implements OnInit {
-  @Input() currentLocationCoords: any;
-  @Input() defaultCity: string = '';
+  @Input() currentWeatherData: Observable<Object> = new Observable();
 
   public currentCity: string = '';
   public currentCountry: string = '';
@@ -21,12 +20,11 @@ export class LandingPageComponent implements OnInit {
   isDarkMode = false;
   weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-  constructor(private weatherService: WeatherService) {
+  constructor() {
   }
 
   ngOnInit(): void {
-    const locationQuery: string = this.currentLocationCoords ?? this.defaultCity;
-    this.weatherService.getCurrentWeather(locationQuery).subscribe((data: any) => {
+    this.currentWeatherData.subscribe((data: any) => {
       const currentDate = data.location.localtime.split(' ')[0];
       const currentDayIndex = new Date(currentDate).getDay();
       this.currentCity = data.location.name;
@@ -41,6 +39,6 @@ export class LandingPageComponent implements OnInit {
   private getConditionIconUrl(time: string, conditionCode: number): string {
     const currentHour = parseInt(time);
     const isDay: boolean = currentHour >= 4 && currentHour <= 20;
-    return `../../assets/images/weather-icons/${isDay ? 'day' : 'night'}/${conditionCode}.svg`
+    return `../../assets/images/weather-icons/${isDay ? 'day' : 'night'}/${conditionCode}.svg`;
   }
 }
