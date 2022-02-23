@@ -42,16 +42,19 @@
       text-align: center;
     }
     .border {
-      #weather-paramenters {
-        font-weight: 500;
-        font-size: 24px;
-        color: $light-text-color;
-        padding-left: 20px;
-      }
       .border-right {
         border-right: solid 1px $light-text-color;
         font-weight: 400;
       }
+    }
+    .weather-paramenters {
+      font-weight: 500;
+      font-size: 24px;
+      color: $light-text-color;
+      padding: 0 0 0 2rem;
+    }
+    .padding-bottom {
+      padding-bottom: 2rem;
     }
 
     tr:first-child {
@@ -75,11 +78,15 @@
     th {
       border: solid 1px $light-text-color;
     }
+
+    th:first-child {
+      border-left: none;
+    }
   }
 
   .button-position {
     text-align: center;
-    padding-top: 3rem;
+    padding-top: 2%;
     @media screen and (max-width: $mobile-breakpoint) {
       padding-top: 1rem;
     }

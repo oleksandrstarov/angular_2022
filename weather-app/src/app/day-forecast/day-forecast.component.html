@@ -7,7 +7,7 @@
         </div>
         <table>
             <tr class="border">
-                <th class="border-right border-left-none"></th>
+                <th class="border-left-none">&nbsp;</th>
                 <th *ngFor="let time of times" class="border-right">
                     {{time}}
                 </th>
@@ -19,32 +19,32 @@
                 </td>
             </tr>
             <tr>
-                <td id="weather-paramenters">Temp, &deg;C</td>
+                <td class="weather-paramenters">Temp, &deg;C</td>
                 <td *ngFor="let weather of weathers" class="text-center">
                     {{weather.temp}}
                 </td>
             </tr>
             <tr>
-                <td id="weather-paramenters">Feels, &deg;C</td>
+                <td class="weather-paramenters">Feels, &deg;C</td>
                 <td *ngFor="let weather of weathers" class="text-center">
                     {{weather.feels}}
                 </td>
             </tr>
             <tr>
-                <td id="weather-paramenters">Press, mmGH</td>
+                <td class="weather-paramenters">Press, mmGH</td>
                 <td *ngFor="let weather of weathers" class="text-center">
                     {{weather.press}}
                 </td>
             </tr>
             <tr>
-                <td id="weather-paramenters">Humidity, %</td>
+                <td class="weather-paramenters">Humidity, %</td>
                 <td *ngFor="let weather of weathers" class="text-center">
                     {{weather.humidity}}
                 </td>
             </tr>
             <tr>
-                <td id="weather-paramenters">Wind, m/s</td>
-                <td *ngFor="let weather of weathers" class="text-center">
+                <td class="weather-paramenters padding-bottom">Wind, m/s</td>
+                <td *ngFor="let weather of weathers" class="text-center padding-bottom">
                     {{weather.wind}}
                 </td>
             </tr>

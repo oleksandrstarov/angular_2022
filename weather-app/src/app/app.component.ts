@@ -10,7 +10,11 @@ import { LocalStorageThemeService } from '../services/local-storage/local-storag
 export class AppComponent implements OnInit {
   isDarkMode!: boolean;
 
-  constructor(public localStorageThemeService: LocalStorageThemeService) {}
+  title: string = 'SoulTeam Weather';
+  currentLocationCoords: any = null // get from navigator.geolocation.getCurrentPosition;
+  defaultCity: string = 'Lviv';
+
+  constructor(public localStorageThemeService: LocalStorageThemeService) { }
   
   ngOnInit(): void {
     console.log(this.isDarkMode);
@@ -22,7 +26,7 @@ export class AppComponent implements OnInit {
       console.log('app-init -> 2');
       this.localStorageThemeService.setTheme('light');
       console.log('app-init -> 3');
-    }  
+    }
     if (currentTheme === 'light') {
       console.log('app-init -> 4');
       this.isDarkMode = false;
