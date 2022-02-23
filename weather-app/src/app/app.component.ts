@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'SoulTeam Weather';
+  title: string = 'SoulTeam Weather';
+  currentLocationCoords: any = null // get from navigator.geolocation.getCurrentPosition;
+  defaultCity: string = 'Lviv';
 }

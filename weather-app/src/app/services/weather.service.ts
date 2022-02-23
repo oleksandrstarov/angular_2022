@@ -15,11 +15,11 @@ export class WeatherService {
     this.apiKey = environment.apiKey;
   }
 
-  getCurrentWeather(cityName: string): Observable<Object> {
+  getCurrentWeather(locationQuery: string): Observable<Object> {
     return this.httpClient.get(`${this.baseApiUrl}/current.json`, {
       params: {
         key: this.apiKey,
-        q: cityName
+        q: locationQuery
       } 
     });
   }
