@@ -1,11 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-day-forecast',
   templateUrl: './day-forecast.component.html',
   styleUrls: ['./day-forecast.component.scss']
 })
-export class DayForecastComponent implements OnInit {
+export class DayForecastComponent {
   isDarkMode = false;
   currentCity = 'Ivano-Frankivsk';
   currentCountry = 'UA';
@@ -27,9 +28,9 @@ export class DayForecastComponent implements OnInit {
 
   times = this.weathers.map(weather => weather.time);
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
-  ngOnInit(): void {
+  goToForecast() {
+    this._router.navigate(['forecast', this.currentCity])
   }
-
 }

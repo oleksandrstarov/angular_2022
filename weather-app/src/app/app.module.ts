@@ -12,6 +12,8 @@ import { LoaderComponent } from './loader/loader.component';
 import { FovoritesListComponent } from './fovorites-list/fovorites-list.component';
 import { DayForecastComponent } from './day-forecast/day-forecast.component';
 import { WeatherService } from './services/weather.service';
+import { WeekForecastComponent } from './week-forecast/week-forecast.component';
+import { DetailedColumnComponent } from './week-forecast/detailed-column/detailed-column.component';
 
 
 
@@ -25,7 +27,9 @@ import { WeatherService } from './services/weather.service';
     FooterComponent,
     LoaderComponent,
     FovoritesListComponent,
-    DayForecastComponent
+    DayForecastComponent,
+    WeekForecastComponent,
+    DetailedColumnComponent
   ],
   imports: [
     BrowserModule,

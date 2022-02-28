@@ -17,8 +17,8 @@
             </div>
         </div>
         <div class="buttons">
-            <button class="forecast">Day forecast</button>
-            <button class="forecast">Week forecast</button>
+            <button class="forecast" [routerLink]="[ 'details', currentCity ]">Day forecast</button>
+            <button class="forecast" [routerLink]="[ 'forecast', currentCity ]">Week forecast</button>
         </div>
     </div>
 </div>
