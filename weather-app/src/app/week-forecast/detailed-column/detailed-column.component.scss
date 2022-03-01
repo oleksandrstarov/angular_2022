@@ -21,6 +21,7 @@
 }
 
 .values-column__title {
+    width: 270px;
     font-size: 30px;
     font-weight: 500;
     text-align: center;
@@ -37,4 +38,54 @@
 
 .time {
     width: 100%;
+}
+
+.values-column-cheked__mobile {
+    display: none;
+}
+
+@media screen and (max-width: 900px) {
+
+    .values-column-cheked {
+        display: none;
+    }
+
+    .values-column-cheked__mobile {
+        
+        display: block;
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        border-bottom: 1px solid $light-text-color;
+
+    }
+
+    .values-column-cheked__title {
+        width: 100%;
+
+    }
+
+    .values-column-cheked__values {
+        display: flex;
+        justify-content: space-between;
+        font-size: 20px;
+        padding: 10px 0px;
+    }
+
+    .weather-icon__container {
+        display: flex;
+        text-align: center;
+        align-items: center;
+    }
+
+    .weather-icon__mobile {
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+    }
+
+    .values-column-cheked__item {
+        text-align: center;
+    }
+
 }

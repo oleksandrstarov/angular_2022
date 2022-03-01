@@ -8,9 +8,8 @@ import { WeatherService } from '../services/weather.service';
   styleUrls: ['./landing-page.component.scss', '../../styles/_container.scss']
 })
 export class LandingPageComponent implements OnInit {
-  @Input() currentLocationCoords: any;
-  @Input() defaultCity: string = '';
-
+  currentLocationCoords: any = null // get from navigator.geolocation.getCurrentPosition;
+  defaultCity: string = 'Lviv';
   public currentCity: string = 'Lviv';
   public currentCountry: string = 'UA';
   public currentDay: string = '';
