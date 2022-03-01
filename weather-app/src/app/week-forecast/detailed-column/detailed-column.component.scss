@@ -17,7 +17,6 @@
 .values-column__subcolumn {
     display: grid;
     grid-template-rows: 1fr 2fr 1fr 1fr 1fr 1fr 1fr;
-    
 }
 
 .values-column__title {
@@ -57,12 +56,10 @@
         width: 100%;
         flex-direction: column;
         border-bottom: 1px solid $light-text-color;
-
     }
 
     .values-column-cheked__title {
         width: 100%;
-
     }
 
     .values-column-cheked__values {
@@ -87,5 +84,4 @@
     .values-column-cheked__item {
         text-align: center;
     }
-
 }
