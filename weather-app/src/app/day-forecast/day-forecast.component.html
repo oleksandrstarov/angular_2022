@@ -3,7 +3,9 @@
         <div class="title-table">
             <span class="day-time">{{currentDay}}, {{currentTime}}</span>
             <span class="location">{{currentCity}}, {{currentCountry}}</span>
-            <span><img src='../../assets/images/icons/star-dark-checked.svg' alt="star"></span>
+            <span (click)="toggleFavorite()">
+                <img src={{starImagePath}} alt="star">
+            </span>
         </div>
         <table>
             <tr class="border">
