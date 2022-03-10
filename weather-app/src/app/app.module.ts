@@ -12,6 +12,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { FovoritesListComponent } from './fovorites-list/fovorites-list.component';
 import { DayForecastComponent } from './day-forecast/day-forecast.component';
 import { WeatherService } from './services/weather.service';
+import { FavoriteCityListService } from './services/favorite-city-list.service';
 
 
 
@@ -32,7 +33,7 @@ import { WeatherService } from './services/weather.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [WeatherService],
+  providers: [WeatherService, FavoriteCityListService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

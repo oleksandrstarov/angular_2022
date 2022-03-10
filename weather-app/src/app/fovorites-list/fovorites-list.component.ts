@@ -1,3 +1,4 @@
+import { FavoriteCityListService } from './../services/favorite-city-list.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,18 +7,26 @@ import { Component } from '@angular/core';
   styleUrls: ['./fovorites-list.component.scss']
 })
 export class FovoritesListComponent {
-
-  fovoritList: string[] = ['Kyiv', 'Lviv', 'Ivano-Frankivsk', 'Mykolaiv'];
-  favoritListState: boolean = false;
+  constructor(private favoriteCityListService: FavoriteCityListService) {
+  }
   
-  constructor() { }
+  favoriteList: string[] = [];
+  favoriteListState: boolean = false;
+
+  ngOnInit(): void {
+    this.favoriteCityListService.favoriteCities.subscribe(newFavoriteCities => {
+      this.favoriteList = newFavoriteCities;
+    });
+  }
 
   showFavoritList() {
-    if(this.fovoritList.length)
-    this.favoritListState = !this.favoritListState;
+    if (this.favoriteList.length) {
+      this.favoriteListState = !this.favoriteListState;
+    }
   }
 
   removeFavotiteItem(i:number) {
-    this.fovoritList.splice(i,1);
+    const city = this.favoriteList[i];
+    this.favoriteCityListService.removeFavorite(city);
   }
 }
