@@ -1,12 +1,12 @@
 import { FavoriteCityListService } from './../services/favorite-city-list.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-fovorites-list',
   templateUrl: './fovorites-list.component.html',
   styleUrls: ['./fovorites-list.component.scss']
 })
-export class FovoritesListComponent {
+export class FovoritesListComponent implements OnInit {
   constructor(private favoriteCityListService: FavoriteCityListService) {
   }
   

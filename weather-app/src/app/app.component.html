@@ -1,7 +1,10 @@
 <div class="wrapper" ngClass="{{backgroundClassName}}">
   <app-header></app-header>
-  <!-- <app-landing-page [currentWeatherData]=currentWeatherData></app-landing-page> -->
-  <app-day-forecast></app-day-forecast>
-  <!-- <app-loader></app-loader> -->
+  <app-loader [hidden]="!isLoading"></app-loader>
+  <div [hidden]="isLoading">
+    <app-landing-page [currentWeatherData]=currentWeatherData></app-landing-page>
+    <!-- <app-server-error></app-server-error> -->
+    <!-- <app-day-forecast></app-day-forecast> -->
+  </div>
   <app-footer></app-footer>
 </div>

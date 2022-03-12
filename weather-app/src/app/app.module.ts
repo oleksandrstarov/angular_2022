@@ -1,6 +1,7 @@
+import { LoaderService } from './services/loader.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -13,8 +14,7 @@ import { FovoritesListComponent } from './fovorites-list/fovorites-list.componen
 import { DayForecastComponent } from './day-forecast/day-forecast.component';
 import { WeatherService } from './services/weather.service';
 import { FavoriteCityListService } from './services/favorite-city-list.service';
-
-
+import { HttpErrorInterceptor } from 'src/http-interceptors/http-request-interceptor';
 
 @NgModule({
   declarations: [
@@ -33,7 +33,15 @@ import { FavoriteCityListService } from './services/favorite-city-list.service';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [WeatherService, FavoriteCityListService],
+  providers: [
+    WeatherService,
+    FavoriteCityListService,
+    LoaderService,
+    {
+      provide: HTTP_INTERCEPTORS,
+        useClass: HttpErrorInterceptor,
+        multi: true,
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

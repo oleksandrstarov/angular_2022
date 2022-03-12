@@ -29,7 +29,7 @@ export class LandingPageComponent implements OnInit {
       const currentDayIndex = new Date(currentDate).getDay();
       this.currentCity = data.location.name;
       this.currentCountry = byCountry(data.location.country)?.iso2 ?? 'null';
-      this.currentDay = this.weekday[currentDayIndex + 1];
+      this.currentDay = this.weekday[currentDayIndex];
       this.currentTime = data.location.localtime.split(' ')[1];
       this.currentDegrees = data.current.temp_c > 0 ? `+${Math.round(data.current.temp_c)}` : Math.round(data.current.temp_c);
       this.curentWeatherIconUrl = this.getConditionIconUrl(this.currentTime, data.current.condition.code);
