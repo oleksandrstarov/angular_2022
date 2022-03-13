@@ -1,22 +1,22 @@
 <div class="favourite-list-container">
     <div class="favorit-list-main">
-        <span class="favorit-list-main-arrow" *ngIf="favoritListState && fovoritList.length"></span>
-        <span class="favorit-item-main" *ngIf="fovoritList.length" (click)="showFavoritList()">
+        <span class="favorit-list-main-arrow" *ngIf="favoriteListState && favoriteList.length"></span>
+        <span class="favorit-item-main" *ngIf="favoriteList.length" (click)="showFavoritList()">
             <svg class="favorit-item-main-star light-mode" version="1.1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 32 32">
                 <title>Favourite list</title>
                 <path d="M26 10.109c0 0.281-0.203 0.547-0.406 0.75l-5.672 5.531 1.344 7.812c0.016 0.109 0.016 0.203 0.016 0.313 0 0.406-0.187 0.781-0.641 0.781-0.219 0-0.438-0.078-0.625-0.187l-7.016-3.687-7.016 3.687c-0.203 0.109-0.406 0.187-0.625 0.187-0.453 0-0.656-0.375-0.656-0.781 0-0.109 0.016-0.203 0.031-0.313l1.344-7.812-5.688-5.531c-0.187-0.203-0.391-0.469-0.391-0.75 0-0.469 0.484-0.656 0.875-0.719l7.844-1.141 3.516-7.109c0.141-0.297 0.406-0.641 0.766-0.641s0.625 0.344 0.766 0.641l3.516 7.109 7.844 1.141c0.375 0.063 0.875 0.25 0.875 0.719z"></path>
             </svg>
         </span>
-        <span class="favorit-item-main" *ngIf="!fovoritList.length">
+        <span class="favorit-item-main" *ngIf="!favoriteList.length">
             <svg class="favorit-item-main-star light-mode" version="1.1" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32">
                 <title>Favourite list</title>
                 <path d="M32 12.408l-11.056-1.607-4.944-10.018-4.944 10.018-11.056 1.607 8 7.798-1.889 11.011 9.889-5.199 9.889 5.199-1.889-11.011 8-7.798zM16 23.547l-6.983 3.671 1.334-7.776-5.65-5.507 7.808-1.134 3.492-7.075 3.492 7.075 7.807 1.134-5.65 5.507 1.334 7.776-6.983-3.671z"></path>
             </svg>
         </span>
-        <span class="favorit-item-main favorit-item-main-mobile" *ngFor="let item of fovoritList | slice:0:3">{{ item }}</span>
+        <span class="favorit-item-main favorit-item-main-mobile" *ngFor="let item of favoriteList | slice:0:3">{{ item }}</span>
     </div>
-    <div class="favorit-list-additional" *ngIf="favoritListState && fovoritList.length">
-        <div class="favorit-item-additional" *ngFor="let item of fovoritList; let i = index">
+    <div class="favorit-list-additional" *ngIf="favoriteListState && favoriteList.length">
+        <div class="favorit-item-additional" *ngFor="let item of favoriteList; let i = index">
             <span>{{ item }}</span>
             <span (click)="removeFavotiteItem(i)">
                 <svg width="15" height="15" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">

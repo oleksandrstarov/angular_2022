@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LocalStorageThemeService } from './services/local-storage/local-storage-theme.service';
+import { Observable } from 'rxjs';
+import { WeatherService } from './services/weather.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +12,11 @@ import { LocalStorageThemeService } from './services/local-storage/local-storage
 export class AppComponent implements OnInit {
   isDarkMode!: boolean;
 
-  title: string = 'SoulTeam Weather';
-  currentLocationCoords: any = null // get from navigator.geolocation.getCurrentPosition;
-  defaultCity: string = 'Lviv';
+  public backgroundClassName: string = '';
+  public title: string = 'SoulTeam Weather';
+  public currentWeatherData: Observable<Object> = new Observable();
 
-  constructor(public localStorageThemeService: LocalStorageThemeService) { }
+  constructor(public localStorageThemeService: LocalStorageThemeService, private weatherService: WeatherService) { }
   
   ngOnInit(): void {
     const currentTheme: string | null = this.localStorageThemeService.getCurrentTheme();
@@ -28,6 +30,16 @@ export class AppComponent implements OnInit {
     if (currentTheme === 'dark') {
       this.isDarkMode = true;
     }
+
+    const currentLocationCoords: any = null // get from navigator.geolocation.getCurrentPosition;
+    const defaultCity: string = 'Lviv';
+    const locationQuery: string = currentLocationCoords ?? defaultCity;
+
+    this.currentWeatherData = this.weatherService.getCurrentWeather(locationQuery);
+
+    this.currentWeatherData.subscribe((data: any) => {
+      this.backgroundClassName = this.getBackgroundClassName(data.location.localtime);
+    });
   }
 
   toggleTheme(): void {
@@ -41,6 +53,20 @@ export class AppComponent implements OnInit {
       this.isDarkMode = false;
       this.localStorageThemeService.setTheme('light');
       return;
+    }
+  }
+
+  getBackgroundClassName(localDateTime: string) {
+    const hour: number = parseInt(localDateTime.split(' ')[1]);
+    switch (true) {
+      case (hour >= 0 && hour < 6):
+        return 'night';
+      case (hour >= 6 && hour < 12):
+        return 'morning';
+      case (hour >= 18 && hour < 24):
+        return 'evening';
+      default:
+        return 'day';
     }
   }
 }

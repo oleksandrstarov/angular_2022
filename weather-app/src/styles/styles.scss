@@ -63,18 +63,8 @@ img {
 
   .landing-page {
     color: $dark-text-color;
-
-    .bg-img {
-      .main-board {
-        @media screen and (min-width: $tablet-breakpoint) {
-          background-color: $dark-background-color;
-        }
-      }
-    }
-    @media screen and (max-width: $before-tablet-breakpoint) {
-      .bg-img {
-        background-image: url(../assets/images/dark-mobile-background.png);
-      }
+    .main-board {
+      background-color: $dark-background-color !important;
     }
   }
 
