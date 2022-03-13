@@ -1,11 +1,11 @@
-<div class="wrapper" [ngClass]="{'dark-mode': isDarkMode}" ngClass="{{backgroundClassName}}">
+<div class="wrapper" [ngClass]="{'dark-mode': isDarkMode, 'evening': backgroundClassName === 'evening', 'day': backgroundClassName === 'day', 'night': backgroundClassName === 'night', 'morning': backgroundClassName === 'morning'}">
+<!-- <div class="wrapper" ngClass="{{backgroundClassName}}"> -->
   <app-header (onThemeSwitcherClick)="toggleTheme()"></app-header>
   <!-- <app-landing-page [currentLocationCoords]=currentLocationCoords
                     [defaultCity]=defaultCity>
                   </app-landing-page> -->
   <!-- <app-day-forecast></app-day-forecast> -->
   <!-- <app-loader></app-loader> -->
-<!-- <div class="wrapper" ngClass="{{backgroundClassName}}"> -->
   <router-outlet></router-outlet>
   <app-footer></app-footer>
 </div>
