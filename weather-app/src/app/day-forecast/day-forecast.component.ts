@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FavoriteCityListService } from '../services/favorite-city-list.service';
 
 @Component({
@@ -29,7 +30,10 @@ export class DayForecastComponent implements OnInit {
   times = this.weathers.map(weather => weather.time);
   starImagePath: string = '';
 
-  constructor(private favoriteCityListService: FavoriteCityListService) { }
+  goToForecast() {
+    this._router.navigate(['forecast', this.currentCity])
+  }
+  constructor(private favoriteCityListService: FavoriteCityListService, private _router: Router) { }
 
   ngOnInit(): void {
     this.starImagePath = this.getStarImagePath();

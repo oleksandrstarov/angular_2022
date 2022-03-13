@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { byCountry } from 'country-code-lookup';
+
+import { WeatherService } from '../services/weather.service';
+//import { byCountry } from 'country-code-lookup';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -8,31 +10,36 @@ import { Observable } from 'rxjs';
   styleUrls: ['./landing-page.component.scss', '../../styles/_container.scss']
 })
 export class LandingPageComponent implements OnInit {
-  @Input() currentWeatherData: Observable<Object> = new Observable();
-
-  public currentCity: string = '';
-  public currentCountry: string = '';
+  currentLocationCoords: any = null // get from navigator.geolocation.getCurrentPosition;
+  defaultCity: string = 'Lviv';
+  public currentCity: string = 'Lviv';
+  public currentCountry: string = 'UA';
   public currentDay: string = '';
   public currentTime: string = ''; 
   public currentDegrees: any = ''; 
   public curentWeatherIconUrl = '';
+  public currentWeatherData: Observable<Object> = new Observable();
  
   isDarkMode = true;
   weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 
-  constructor() {
+  constructor(private weatherService: WeatherService) {
   }
 
   ngOnInit(): void {
+    const currentLocationCoords: any = null // get from navigator.geolocation.getCurrentPosition;
+    const defaultCity: string = 'Lviv';
+    const locationQuery: string = currentLocationCoords ?? defaultCity;
+    this.currentWeatherData = this.weatherService.getCurrentWeather(locationQuery);
     this.currentWeatherData.subscribe((data: any) => {
-      const currentDate = data.location.localtime.split(' ')[0];
-      const currentDayIndex = new Date(currentDate).getDay();
-      this.currentCity = data.location.name;
-      this.currentCountry = byCountry(data.location.country)?.iso2 ?? 'null';
-      this.currentDay = this.weekday[currentDayIndex + 1];
-      this.currentTime = data.location.localtime.split(' ')[1];
-      this.currentDegrees = data.current.temp_c > 0 ? `+${Math.round(data.current.temp_c)}` : Math.round(data.current.temp_c);
-      this.curentWeatherIconUrl = this.getConditionIconUrl(this.currentTime, data.current.condition.code);
+    const currentDate = data.location.localtime.split(' ')[0];
+    const currentDayIndex = new Date(currentDate).getDay();
+    this.currentCity = data.location.name;
+    //this.currentCountry = byCountry(data.location.country)?.iso2 ?? 'null';
+    this.currentDay = this.weekday[currentDayIndex + 1];
+    this.currentTime = data.location.localtime.split(' ')[1];
+    this.currentDegrees = data.current.temp_c > 0 ? `+${Math.round(data.current.temp_c)}` : Math.round(data.current.temp_c);
+    this.curentWeatherIconUrl = this.getConditionIconUrl(this.currentTime, data.current.condition.code);
     });
   }
 
@@ -42,3 +49,7 @@ export class LandingPageComponent implements OnInit {
     return `../../assets/images/weather-icons/${isDay ? 'day' : 'night'}/${conditionCode}.svg`;
   }
 }
+function byCountry(country: any) {
+  throw new Error('Function not implemented.');
+}
+
