@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Observable } from 'rxjs';
 import { WeatherService } from './services/weather.service';
 
@@ -7,7 +7,7 @@ import { WeatherService } from './services/weather.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   constructor(private weatherService: WeatherService) {
   }
 
