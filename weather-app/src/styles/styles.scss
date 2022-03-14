@@ -36,21 +36,88 @@ img {
   height: auto;
 }
 
-.forecast {
-  border: none;
-  background-color: white;
-  box-shadow: 0 4px 5px rgb(0 0 0 / 25%);
-  color: $light-text-color;
-  height: 35px;
-  width: 220px;
-  border-radius: 50px;
-  font-size: 20px;
-  font-weight: 400;
-}
-
-.dark-mode {
-  .forecast {
+.wrapper.dark-mode {
+  .button {
     background-color: $dark-background-color;
+  }
+
+  .header {
     color: $dark-text-color;
+    background-color: $dark-background-color;
+    border-bottom: 1px solid $dark-text-color;
+
+    .language-switcher .inactive {
+      color: $dark-additional-text-color;
+    }
+
+    .theme-switcher__marker {
+      background-color: $light-text-color;
+    }
+  }
+
+  .footer {
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+    border-top: 1px solid $dark-text-color;
+  }
+
+  .landing-page {
+    color: $dark-text-color;
+    .main-board {
+      background-color: $dark-background-color !important;
+    }
+  }
+
+  .day-forecast-page {
+    color: $dark-text-color;
+
+    .main-board {
+      background-color: $dark-background-color !important;
+      .title-table {
+        background-color: $dark-additional-background-color !important;
+      }
+    }
+
+    table {
+      border: none !important;
+      .border-left-none {
+        border-left: none !important;
+      }
+      .border {
+        color: $dark-text-color !important;
+        .weather-parameters {
+          color: $dark-text-color !important;
+        }
+        .border-none {
+          border-right: solid 1px $dark-additional-text-color !important;
+        }
+        .border-right {
+          border-right: solid 1px $dark-additional-text-color !important;
+        }
+      }
+    }
+    table td {
+      border-right: solid 1px $dark-additional-text-color !important;
+    }
+    table th {
+      border: solid 1px $dark-additional-text-color !important;
+    }
+    .main-board-mobile {
+      .forecast-info {
+        background-color: $dark-background-color !important;
+
+        .title {
+          background-color: $dark-additional-background-color !important;
+          border-bottom: 1px solid $dark-additional-text-color;
+        }
+        table {
+          background-color: $dark-background-color !important;
+        }
+      }
+    }
+  }
+
+  .visible.loader {
+    background-color: $dark-additional-background-color-opacity90;
   }
 }

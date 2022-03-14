@@ -7,15 +7,12 @@
 
   color: $light-text-color;
   background-color: $light-background-color;
+  border-bottom: 1px solid $light-text-color;
 }
 
 .header-container {
   display: flex;
   align-items: center;
-
-  // presses the left and right elements to the edges of the container, the others are spaced equidistant from each other
-  // convenient in our case, because we don't yet know which size the list of saved cities will
-  // it also allows to make the layout "responsive" on the width of the screen up to 480px
   justify-content: space-between;
 
   height: 100%;
@@ -23,15 +20,27 @@
 
 .logo {
   display: flex;
-  align-items: center;
 
   height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
 
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.25;
-  text-transform: uppercase;
+  text-align: center;
 
-  color: $light-text-color;
+  .logo--wrapper {
+    position: relative;
+  }
+
+  .logo--image {
+    position: absolute;
+    width: 40px;
+  }
+
+  .logo--text:not(:last-child) {
+    margin-right: 32px;
+  }
 }
 
 // this is a block-stub, until component 'favourite list' is created
@@ -39,14 +48,7 @@
   display: flex;
   width: 20px;
   height: 20px;
-
-  .icon.dark {
-    display: none;
-  }
-
-  .icon.light {
-    display: block;
-  }
+  // border-bottom: 1px solid #ccc;
 }
 
 .language-switcher {
@@ -65,82 +67,130 @@
 
 .theme-switcher {
   display: flex;
-  flex-wrap: nowrap;
   align-items: center;
-
-  height: 100%;
-
-  .icon {
-    width: 30px;
-    height: 16px;
-    margin-left: 5px;
-  }
-
-  .icon.dark {
-    display: none;
-  }
-
-  .icon.light {
-    display: block;
-  }
 }
 
-@media screen and (min-width: $mobile-breakpoint) {
+.theme-switcher__icon {
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
+  margin-left: 8px;
 
+  color: currentColor;
+}
+
+.theme-switcher__icon--moon {
+  height: 18px;
+  width: 18px;
+}
+
+.theme-switcher__control {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 22px;
+  padding: 3px 0;
+
+  border-radius: 50px;
+}
+
+.theme-switcher__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  margin: 0;
+  padding: 0;
+  height: 0;
+  width: 0;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.theme-switcher__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  color: transparent;
+  background-color: $light-text-color;
+
+  user-select: none;
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.theme-switcher__marker {
+  position: relative;
+
+  width: 16px;
+  height: 16px;
+
+  background-color: $light-background-color;
+
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(3px);
+  transition: transform 250ms ease;
+  outline: none;
+}
+
+.theme-switcher__toggle:checked + .theme-switcher__track {
+  background-color: $light-background-color;
+}
+
+.theme-switcher__toggle:checked ~ .theme-switcher__marker {
+  transform: translateX(24px);
 }
 
 @media screen and (max-width: $before-tablet-breakpoint) {
   .logo {
     display: none;
   }
+}
 
-  .theme-switcher_description {
-    display: none;
+@media screen and (min-width: $tablet-breakpoint) and (max-width: $before-desktop-breakpoint) {
+  .logo {
+    flex-direction: column;
+    justify-content: center;
+
+    .logo--image {
+      left: 20px;
+      top: -7px;
+    }
   }
 }
 
 @media screen and (min-width: $desktop-breakpoint) {
- 
   .favourite-list-block {
     width: 350px;
     height: 20px;
-
-  }
-}
-
-.dark-mode {
-  &.header {
-    color: $dark-text-color;
-    background-color: $dark-background-color;
   }
 
   .logo {
-    color: $dark-text-color;
-  }
+    flex-direction: row;
+    align-items: center;
 
-  .favourite-list-block {
-    border-bottom: 1px solid $dark-text-color;
+    font-size: 24px;
 
-    .icon.light {
-      display: none;
+    .logo--wrapper {
+      margin-right: 8px;
     }
 
-    .icon.dark {
-      display: block;
-    }
-  }
-
-  .language-switcher .inactive {
-    color: $dark-additional-text-color;
-  }
-
-  .theme-switcher {
-    .icon.light {
-      display: none;
-    }
-
-    .icon.dark {
-      display: block;
+    .logo--image {
+      left: 11px;
+      top: -3px;
     }
   }
 }

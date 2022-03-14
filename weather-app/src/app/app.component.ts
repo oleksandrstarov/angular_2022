@@ -1,4 +1,5 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LocalStorageThemeService } from './services/local-storage/local-storage-theme.service';
 import { Observable } from 'rxjs';
 import { WeatherService } from './services/weather.service';
 
@@ -7,15 +8,20 @@ import { WeatherService } from './services/weather.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+  
 export class AppComponent implements OnInit {
-  constructor(private weatherService: WeatherService) {
-  }
+  isDarkMode!: boolean;
 
   public backgroundClassName: string = '';
   public title: string = 'SoulTeam Weather';
   public currentWeatherData: Observable<Object> = new Observable();
 
+  constructor(public localStorageThemeService: LocalStorageThemeService, private weatherService: WeatherService) { }
+  
   ngOnInit(): void {
+    const currentTheme: string | null = this.localStorageThemeService.getCurrentTheme();
+    this.isDarkMode = currentTheme === 'dark';
+
     const currentLocationCoords: any = null // get from navigator.geolocation.getCurrentPosition;
     const defaultCity: string = 'Lviv';
     const locationQuery: string = currentLocationCoords ?? defaultCity;
@@ -25,6 +31,11 @@ export class AppComponent implements OnInit {
     this.currentWeatherData.subscribe((data: any) => {
       this.backgroundClassName = this.getBackgroundClassName(data.location.localtime);
     });
+  }
+
+  toggleTheme(): void {
+    this.isDarkMode = !this.isDarkMode;
+    this.localStorageThemeService.setTheme(this.isDarkMode === true ? 'dark' : 'light');
   }
 
   getBackgroundClassName(localDateTime: string) {

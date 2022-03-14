@@ -2,8 +2,8 @@
 @import "../../styles/container";
 
 .input-container {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 }
 
 .search-block {
@@ -18,6 +18,11 @@
   padding-left: 15px;
 
   cursor: pointer;
+
+  &::placeholder {
+    font-size: 14px;
+    color: $light-additional-text-color;
+  }
 }
 
 .search-block::placeholder {
@@ -26,28 +31,28 @@
 }
 
 .search-icon {
-    width: 16px;
-    height: 16px;
-    position: absolute;
-    right: 15px;
-    top: 7px;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  right: 15px;
+  top: 7px;
 }
 
 .search-icon:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 @media screen and (min-width: $mobile-breakpoint) {
-    .search-block {
-      width: 260px;
-    }
+  .search-block {
+    width: 260px;
+  }
 }
-  
+
 @media screen and (max-width: $before-tablet-breakpoint) {
 }
-  
+
 @media screen and (min-width: $desktop-breakpoint) {
-    .search-block {
-        width: 400px;
-    }
+  .search-block {
+    width: 400px;
+  }
 }
