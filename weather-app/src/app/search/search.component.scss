@@ -1,0 +1,53 @@
+@import "../../styles/variables";
+@import "../../styles/container";
+
+.input-container {
+    display: inline-block;
+    position: relative;
+}
+
+.search-block {
+  width: 50vw;
+  height: 30px;
+  color: $light-text-color;
+  font-size: 16px; 
+  outline: none;
+
+  border: 1px solid $light-text-color;
+  border-radius: 50px;
+  padding-left: 15px;
+
+  cursor: pointer;
+}
+
+.search-block::placeholder {
+    color: $light-additional-text-color;
+    font-size: 16px; 
+}
+
+.search-icon {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    right: 15px;
+    top: 7px;
+}
+
+.search-icon:hover {
+    cursor: pointer;
+}
+
+@media screen and (min-width: $mobile-breakpoint) {
+    .search-block {
+      width: 260px;
+    }
+}
+  
+@media screen and (max-width: $before-tablet-breakpoint) {
+}
+  
+@media screen and (min-width: $desktop-breakpoint) {
+    .search-block {
+        width: 400px;
+    }
+}

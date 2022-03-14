@@ -1,0 +1,8 @@
+<div class="input-container">
+    <input type="text" placeholder="Enter a city ..." class="search-block" #searchInput
+        (input)="autocomplete(searchInput.value)" (keydown.enter)="searchLocation(searchInput.value)">
+
+    <svg class="search-icon" viewBox="0 0 50 50" (click)="searchLocation(searchInput.value)">
+        <use href="./../../assets/images/icons/sprite.svg#icon-search"></use>
+    </svg>
+</div>

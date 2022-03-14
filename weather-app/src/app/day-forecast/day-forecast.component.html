@@ -1,0 +1,93 @@
+<div [ngClass]="{'dark-mode': isDarkMode}">
+    <div class="main-board">
+        <div class="title-table">
+            <span class="day-time">{{currentDay}}, {{currentTime}}</span>
+            <span class="location">{{currentCity}}, {{currentCountry}}</span>
+            <span><img src='../../assets/images/icons/star-dark-checked.svg' alt="star"></span>
+        </div>
+        <table>
+            <tr class="border">
+                <th class="border-right border-left-none"></th>
+                <th *ngFor="let time of times" class="border-right">
+                    {{time}}
+                </th>
+            </tr>
+            <tr>
+                <td class="text-center"></td>
+                <td *ngFor="let weather of weathers" class="text-center">
+                    <img src={{weather.img}} alt="current weather icon">
+                </td>
+            </tr>
+            <tr>
+                <td id="weather-paramenters">Temp, &deg;C</td>
+                <td *ngFor="let weather of weathers" class="text-center">
+                    {{weather.temp}}
+                </td>
+            </tr>
+            <tr>
+                <td id="weather-paramenters">Feels, &deg;C</td>
+                <td *ngFor="let weather of weathers" class="text-center">
+                    {{weather.feels}}
+                </td>
+            </tr>
+            <tr>
+                <td id="weather-paramenters">Press, mmGH</td>
+                <td *ngFor="let weather of weathers" class="text-center">
+                    {{weather.press}}
+                </td>
+            </tr>
+            <tr>
+                <td id="weather-paramenters">Humidity, %</td>
+                <td *ngFor="let weather of weathers" class="text-center">
+                    {{weather.humidity}}
+                </td>
+            </tr>
+            <tr>
+                <td id="weather-paramenters">Wind, m/s</td>
+                <td *ngFor="let weather of weathers" class="text-center">
+                    {{weather.wind}}
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="main-board-mobile">
+        <div class="forecast-info">
+            <div class="title">
+                <div class="main-info">
+                    <div class="location">{{currentCity}}</div>
+                    <div class="location">{{currentCountry}}</div>
+                    <div class="date">{{currentDay}}, {{currentTime}}</div>
+                </div>
+                <div class="star-icon"><img src='../../assets/images/icons/star-dark-checked.svg' alt="star"></div>
+            </div>
+            <table>
+                <tr>
+                    <td class="border-none"></td>
+                    <td class="border-none"></td>
+                    <td class="border-none">Temp</td>
+                    <td class="border-none">Press</td>
+                    <td class="border-none">Wind</td>
+                </tr>
+                <tr *ngFor="let weather of weathers">
+                    <td>{{weather.time}}</td>
+                    <td class="icon-position">
+                        <img src={{weather.img}} alt="current weather icon" class="weather-icon">
+                    </td>
+                    <td class="temp-weight">{{weather.temp}}&deg;C</td>
+                    <td>{{weather.press}}</td>
+                    <td class="border-right-none">{{weather.wind}}</td>
+                </tr>
+                <tr>
+                    <td class="border-none"></td>
+                    <td class="border-none"></td>
+                    <td class="border-none"></td>
+                    <td class="border-none">mmGh</td>
+                    <td class="border-none">m/s</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="button-position">
+        <button class="forecast">Week forecast</button>
+    </div>
+</div>
