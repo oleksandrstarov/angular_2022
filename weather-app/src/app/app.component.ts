@@ -20,16 +20,7 @@ export class AppComponent implements OnInit {
   
   ngOnInit(): void {
     const currentTheme: string | null = this.localStorageThemeService.getCurrentTheme();
-    if (!currentTheme) {
-      this.isDarkMode = false;
-      this.localStorageThemeService.setTheme('light');
-    }
-    if (currentTheme === 'light') {
-      this.isDarkMode = false;
-    }
-    if (currentTheme === 'dark') {
-      this.isDarkMode = true;
-    }
+    this.isDarkMode = currentTheme === 'dark';
 
     const currentLocationCoords: any = null // get from navigator.geolocation.getCurrentPosition;
     const defaultCity: string = 'Lviv';
@@ -43,17 +34,8 @@ export class AppComponent implements OnInit {
   }
 
   toggleTheme(): void {
-    if (this.isDarkMode === false) {
-      this.isDarkMode = true;
-      this.localStorageThemeService.setTheme('dark');
-      return;
-    }
-
-    if (this.isDarkMode === true) {
-      this.isDarkMode = false;
-      this.localStorageThemeService.setTheme('light');
-      return;
-    }
+    this.isDarkMode = !this.isDarkMode;
+    this.localStorageThemeService.setTheme(this.isDarkMode === true ? 'dark' : 'light');
   }
 
   getBackgroundClassName(localDateTime: string) {
