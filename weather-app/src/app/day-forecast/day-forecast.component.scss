@@ -54,10 +54,11 @@
     }
     .text-center {
       text-align: center;
+      font-weight: 400;
     }
     .border {
       .border-right {
-        border-right: solid 1px $light-text-color;
+        border-right: solid 1px $dark-text-color;
         font-weight: 400;
       }
     }
@@ -66,12 +67,15 @@
       font-size: 24px;
       padding: 0 0 0 2rem;
     }
+    .weather-paramenters--bold {
+      font-weight: 500;
+    }
     .padding-bottom {
       padding-bottom: 2rem;
     }
 
     tr:first-child {
-      border-bottom: solid 1px $light-text-color;
+      border-bottom: solid 1px $dark-text-color;
       font-size: 20px;
       border: none;
     }
@@ -80,7 +84,7 @@
       font-weight: 400;
       font-size: 24px;
       width: 4%;
-      border-right: solid 1px $light-text-color;
+      border-right: solid 1px $dark-text-color;
       padding: 3px;
     }
 
@@ -90,7 +94,7 @@
     }
 
     th {
-      border: solid 1px $light-text-color;
+      border: solid 1px $dark-text-color;
       padding: 5px;
     }
 

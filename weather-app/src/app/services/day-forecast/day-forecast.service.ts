@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,7 @@ export class DayForecastService {
     this.apiKey = environment.apiKey;
   }
 
-  getDayForecast(location: string) {
-    return this.httpClient.get(`${this.baseApiUrl}/forecast.json?key=${this.apiKey}&q=${location}&days=1`)
-      .subscribe(response => console.log(response))
+  getDayForecast(location: string): Observable<Object> {
+    return this.httpClient.get(`${this.baseApiUrl}/forecast.json?key=${this.apiKey}&q=${location}&days=1`);
   }
 }
