@@ -31,9 +31,12 @@ export class DayForecastComponent implements OnInit {
   starImagePath: string = '';
 
   goToForecast() {
-    this._router.navigate(['forecast', this.currentCity])
+    this.router.navigate(['forecast', this.currentCity])
   }
-  constructor(private favoriteCityListService: FavoriteCityListService, private _router: Router) { }
+
+  constructor(
+    private favoriteCityListService: FavoriteCityListService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.starImagePath = this.getStarImagePath();
