@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FavoriteCityListService } from '../services/favorite-city-list.service';
+import { DayForecastService } from '../services/day-forecast/day-forecast.service';
 
 @Component({
   selector: 'app-day-forecast',
@@ -8,7 +10,8 @@ import { FavoriteCityListService } from '../services/favorite-city-list.service'
   styleUrls: ['./day-forecast.component.scss']
 })
 export class DayForecastComponent implements OnInit {
-  isDarkMode = false;
+    public defaultCity: string = 'Lviv';
+
   currentCity = 'Ivano-Frankivsk';
   currentCountry = 'UA';
   currentDay = 'Monday';
@@ -33,9 +36,17 @@ export class DayForecastComponent implements OnInit {
   goToForecast() {
     this._router.navigate(['forecast', this.currentCity])
   }
-  constructor(private favoriteCityListService: FavoriteCityListService, private _router: Router) { }
+
+  constructor(
+    private favoriteCityListService: FavoriteCityListService,
+    private _router: Router,
+    private http: HttpClient,
+    private dayForecastService: DayForecastService
+  ) { }
 
   ngOnInit(): void {
+    this.dayForecastService.getDayForecast(this.defaultCity);
+
     this.starImagePath = this.getStarImagePath();
 
     this.favoriteCityListService.favoriteCities.subscribe(() => {
