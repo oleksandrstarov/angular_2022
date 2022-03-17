@@ -10,44 +10,44 @@
         <table>
             <tr class="border">
                 <th class="border-left-none">&nbsp;</th>
-                <th *ngFor="let time of times" class="border-right">
-                    {{time}}
+                <th *ngFor="let day of forecast" class="border-right">
+                    {{day.time.split(' ')[1]}}
                 </th>
             </tr>
             <tr>
                 <td class="text-center"></td>
-                <td *ngFor="let weather of weathers" class="text-center">
-                    <img class="weather-icon" src={{weather.img}} alt="current weather icon">
+                <td *ngFor="let day of forecast" class="text-center">
+                    <img class="weather-icon" src={{getConditionIconUrl(day)}} alt="current weather icon">
                 </td>
             </tr>
             <tr>
                 <td class="weather-paramenters">Temp, &deg;C</td>
-                <td *ngFor="let weather of weathers" class="text-center">
-                    {{weather.temp}}
+                <td *ngFor="let day of forecast" class="text-center weather-paramenters--bold">
+                    {{parseNumber(day.temp_c)}}
                 </td>
             </tr>
             <tr>
                 <td class="weather-paramenters">Feels, &deg;C</td>
-                <td *ngFor="let weather of weathers" class="text-center">
-                    {{weather.feels}}
+                <td *ngFor="let day of forecast" class="text-center weather-paramenters--bold">
+                    {{parseNumber(day.feelslike_c)}}
                 </td>
             </tr>
             <tr>
                 <td class="weather-paramenters">Press, mmGH</td>
-                <td *ngFor="let weather of weathers" class="text-center">
-                    {{weather.press}}
+                <td *ngFor="let day of forecast" class="text-center">
+                    {{day.pressure_mb}}
                 </td>
             </tr>
             <tr>
                 <td class="weather-paramenters">Humidity, %</td>
-                <td *ngFor="let weather of weathers" class="text-center">
-                    {{weather.humidity}}
+                <td *ngFor="let day of forecast" class="text-center">
+                    {{day.humidity}}
                 </td>
             </tr>
             <tr>
-                <td class="weather-paramenters padding-bottom">Wind, m/s</td>
-                <td *ngFor="let weather of weathers" class="text-center padding-bottom">
-                    {{weather.wind}}
+                <td class="weather-paramenters padding-bottom">Wind, k/h</td>
+                <td *ngFor="let day of forecast" class="text-center padding-bottom">
+                    {{parseNumber(day.wind_kph)}}
                 </td>
             </tr>
         </table>
@@ -70,21 +70,21 @@
                     <td class="border-none">Press</td>
                     <td class="border-none">Wind</td>
                 </tr>
-                <tr *ngFor="let weather of weathers">
-                    <td class="weather-info">{{weather.time}}</td>
+                <tr *ngFor="let day of forecast">
+                    <td class="weather-info">{{day.time.split(' ')[1]}}</td>
                     <td class="icon-position">
-                        <img src={{weather.img}} alt="current weather icon" class="weather-icon">
+                        <img src={{getConditionIconUrl(day)}} alt="current weather icon" class="weather-icon">
                     </td>
-                    <td class="temp-weight">{{weather.temp}}&deg;C</td>
-                    <td class="weather-info">{{weather.press}}</td>
-                    <td class="border-right-none weather-info">{{weather.wind}}</td>
+                    <td class="temp-weight">{{parseNumber(day.temp_c)}}&deg;C</td>
+                    <td class="weather-info">{{day.pressure_mb}}</td>
+                    <td class="border-right-none weather-info">{{parseNumber(day.wind_kph)}}</td>
                 </tr>
                 <tr>
                     <td class="border-none"></td>
                     <td class="border-none"></td>
                     <td class="border-none"></td>
                     <td class="border-none">mmGh</td>
-                    <td class="border-none">m/s</td>
+                    <td class="border-none">k/h</td>
                 </tr>
             </table>
         </div>
