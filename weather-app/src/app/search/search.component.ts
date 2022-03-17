@@ -11,7 +11,7 @@ import { SearchAutocompleteService } from '../services/search-autocomplete.servi
   styleUrls: ['./search.component.scss']
 })
 
-export class SearchComponent implements OnInit {
+export class SearchComponent {
   @ViewChild(MatAutocompleteTrigger) autocomplete: MatAutocompleteTrigger = {} as MatAutocompleteTrigger;
 
   defaultCity = "Kyiv";
@@ -32,9 +32,6 @@ export class SearchComponent implements OnInit {
         return this.filter(val || '')
       })
     )
-  }
-
-  ngOnInit(): void {
   }
 
   filter(val: string): Observable<any[]> {
