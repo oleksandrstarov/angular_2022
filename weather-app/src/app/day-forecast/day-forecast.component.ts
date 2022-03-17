@@ -17,7 +17,7 @@ export class DayForecastComponent implements OnInit {
   public forecast!: any;
   public currentCity: string = 'Lviv';
   public currentCountry: string = 'UA';
-  public currentDay: string = 'Monday';
+  public currentDay: any = 'Monday';
   public currentTime: string = '06:00';
 
   currentDegrees = '+12';
@@ -33,6 +33,9 @@ export class DayForecastComponent implements OnInit {
     {id: 7, time: '18:00', img: this.curentWeatherIconUrl, temp: 8, feels: 10, press: 990, humidity: 40, wind: 55},
     {id: 8, time: '21:00', img: this.curentWeatherIconUrl, temp: 8, feels: 10, press: 990, humidity: 40, wind: 55},
   ];
+
+    weekday = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
 
   times = this.weathers.map(weather => weather.time);
   starImagePath: string = '';
@@ -56,6 +59,8 @@ export class DayForecastComponent implements OnInit {
       console.log(data)
       this.currentCity = data.location.name;
       this.currentCountry = byCountry(data.location.country)?.iso2 ?? 'null';
+      const date = new Date("2017-01-26");
+      this.currentDay = this.weekday[date.getDay()];
       this.currentTime = data.location.localtime.split(' ')[1];
       this.forecast = data.forecast.forecastday[0].hour.filter((item: any, index: number) => {
         if (index === 0 || index === 3 || index === 6 || index === 9 || index === 12 || index === 15 || index === 18 || index === 21
@@ -72,14 +77,10 @@ export class DayForecastComponent implements OnInit {
     });
   }
 
-  // public getConditionIconUrl(time: string, conditionCode: number): string {
-  //   const currentHour = parseInt(time);
-  //   const isDay: boolean = currentHour >= 4 && currentHour <= 20;
-  //   return `../../assets/images/weather-icons/${isDay ? 'day' : 'night'}/${conditionCode}.svg`;
-  // }
-
-  public getConditionIconUrl(conditionCode: string): string {
-    return `../../assets/images/weather-icons/day/${conditionCode}.svg`;
+  public getConditionIconUrl(obj: any): string {
+    const currentHour = parseInt(obj.time.split(' ')[1]);
+    const isDay: boolean = currentHour >= 4 && currentHour <= 20;
+    return `../../assets/images/weather-icons/day/${obj.condition.code}.svg`;
   }
 
   toggleFavorite(): void {
