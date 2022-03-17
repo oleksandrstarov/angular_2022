@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { FavoriteCityListService } from '../services/favorite-city-list.service';
 
 @Component({
   selector: 'app-week-forecast',
@@ -25,7 +26,16 @@ export class WeekForecastComponent {
   sixthColumnChecked = false;
   sevenColumn = true;
   sevenColumnChecked = false;
-  constructor(private _router: Router) { }
+  starImagePath: string = '';
+  constructor(private _router: Router, private favoriteCityListService: FavoriteCityListService) { }
+
+  ngOnInit(): void {
+    this.starImagePath = this.getStarImagePath();
+
+    this.favoriteCityListService.favoriteCities.subscribe(() => {
+      this.starImagePath = this.getStarImagePath();
+    });
+  }
 
   clearStatus() {
     this.firstColumnChecked = false;
@@ -87,4 +97,20 @@ export class WeekForecastComponent {
   goToDetails() {
     this._router.navigate(['details', this.currentCity])
   }
+
+  toggleFavorite(): void {
+    if (this.favoriteCityListService.isFavorite(this.currentCity)) {
+      this.favoriteCityListService.removeFavorite(this.currentCity);
+    } else {
+      this.favoriteCityListService.addFavorite(this.currentCity);
+    }
+  }
+
+  private getStarImagePath(): string {
+    const path = '../../assets/images/icons/';
+    return this.favoriteCityListService.isFavorite(this.currentCity)
+      ? `${path}star-light-checked.svg`
+      : `${path}star-light-empty.svg`;
+  }
+
 }
