@@ -1,5 +1,5 @@
 import { FavoriteCityListService } from './../services/favorite-city-list.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   templateUrl: './fovorites-list.component.html',
   styleUrls: ['./fovorites-list.component.scss']
 })
-export class FovoritesListComponent {
+export class FovoritesListComponent implements OnInit {
   constructor(private favoriteCityListService: FavoriteCityListService, private router: Router) {
   }
   

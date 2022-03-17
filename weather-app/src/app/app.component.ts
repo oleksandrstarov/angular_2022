@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LocalStorageThemeService } from './services/local-storage/local-storage-theme.service';
 import { Observable } from 'rxjs';
 import { WeatherService } from './services/weather.service';
+import { LoaderService } from './services/loader.service';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +16,12 @@ export class AppComponent implements OnInit {
   public backgroundClassName: string = '';
   public title: string = 'SoulTeam Weather';
   public currentWeatherData: Observable<Object> = new Observable();
+  public isLoading: boolean = true;
 
-  constructor(public localStorageThemeService: LocalStorageThemeService, private weatherService: WeatherService) { }
+  constructor(
+    public localStorageThemeService: LocalStorageThemeService,
+    private weatherService: WeatherService,
+    private loaderService: LoaderService) { }
   
   ngOnInit(): void {
     const currentTheme: string | null = this.localStorageThemeService.getCurrentTheme();
@@ -31,6 +36,10 @@ export class AppComponent implements OnInit {
     this.currentWeatherData.subscribe((data: any) => {
       this.backgroundClassName = this.getBackgroundClassName(data.location.localtime);
     });
+
+    this.loaderService.isLoading.subscribe(
+      (isLoading: boolean) => this.isLoading = isLoading
+    );
   }
 
   toggleTheme(): void {
