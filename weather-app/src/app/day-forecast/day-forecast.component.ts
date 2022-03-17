@@ -39,8 +39,6 @@ export class DayForecastComponent implements OnInit, DoCheck {
   ngOnInit(): void {
     this.getForecast();
 
-    this.starImagePath = this.getStarImagePath();
-
     this.favoriteCityListService.favoriteCities.subscribe(() => {
       this.starImagePath = this.getStarImagePath();
     });
@@ -73,6 +71,8 @@ export class DayForecastComponent implements OnInit, DoCheck {
           return item;
         }
       });
+
+      this.starImagePath = this.getStarImagePath();
     })
   }
 
