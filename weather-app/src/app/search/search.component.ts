@@ -49,14 +49,9 @@ export class SearchComponent implements OnInit {
           const filteredOptions: any[] = response.filter(
             (option: any) => option.name.toLowerCase().indexOf(val.toLowerCase()) === 0);
 
-          if (filteredOptions.length === 0) {
-            this.showNotFoundError = true;
-          }
+            this.showNotFoundError = !filteredOptions.length
 
-          if (filteredOptions.some(
-            (option: any) => option.name.toLowerCase() === this.inputValue.toLowerCase())) {
-              this.isInputValid = true;
-          }
+            this.isInputValid = filteredOptions.some( (option: any) => option.name.toLowerCase() === this.inputValue.toLowerCase());
 
           return filteredOptions;
         })
@@ -69,7 +64,7 @@ export class SearchComponent implements OnInit {
     }
   }
 
-  click(event: any): void {
+  routeToDayForecast(event: any): void {
     if (this.showNotFoundError === false && this.isInputValid) {
       this.autocomplete.closePanel();
       this.router.navigate(['details', this.inputValue]);
