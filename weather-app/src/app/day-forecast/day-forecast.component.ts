@@ -41,7 +41,7 @@ export class DayForecastComponent implements OnInit {
   starImagePath: string = '';
 
   goToForecast() {
-    this._router.navigate(['forecast', this.currentCity])
+    this.router.navigate(['forecast', this.currentCity])
   }
 
   constructor(
