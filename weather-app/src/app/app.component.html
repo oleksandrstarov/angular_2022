@@ -1,10 +1,6 @@
-<div class="wrapper" ngClass="{{backgroundClassName}}">
-  <app-header></app-header>
+<div class="wrapper" [ngClass]="{'dark-mode': isDarkMode, 'evening': backgroundClassName === 'evening', 'day': backgroundClassName === 'day', 'night': backgroundClassName === 'night', 'morning': backgroundClassName === 'morning'}">
+  <app-header (onThemeSwitcherClick)="toggleTheme()"></app-header>
   <app-loader [hidden]="!isLoading"></app-loader>
-  <div [hidden]="isLoading">
-    <app-landing-page [currentWeatherData]=currentWeatherData></app-landing-page>
-    <!-- <app-server-error></app-server-error> -->
-    <!-- <app-day-forecast></app-day-forecast> -->
-  </div>
+  <router-outlet [hidden]="isLoading"></router-outlet>
   <app-footer></app-footer>
 </div>

@@ -1,64 +1,31 @@
 @import "../../styles/variables";
 
-.loader-image {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 333;
+.loader {
+  position: relative;
 
-  width: 150px;
-  height: 150px;
-}
+  margin-top: 70px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0;
 
-@media screen and (max-width: $before-tablet-breakpoint) {
-  .background {
-    position: fixed;
-    bottom: 0;
-
-    width: 100vw;
-    height: 100vh;
-    padding-top: 50vh;
-
-    background-image: url("../../assets/images/mobile-background.png");
-    background-repeat: no-repeat;
-    background-size: 100% 50vh;
-    background-attachment: fixed;
-    background-position: bottom;
-  }
-
-  .loader-image {
-    bottom: 15vh;
-  }
-}
-
-@media screen and (min-width: $tablet-breakpoint) {
-  .background {
-    margin-top: 70px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 0;
-
-    width: 560px;
-    height: 360px;
-    background-color: $light-additional-background-color-opacity90;
-    border-radius: 20px;
-  }
-
-  .loader-image {
-    top: 236px;
-  }
-}
-
-.dark-mode {
-  @media screen and (max-width: $before-tablet-breakpoint) {
-    .background {
-      background-image: url("../../assets/images/dark-mobile-background.png");
-    }
-  }
+  width: 80%;
+  height: 50%;
+  background-color: $light-additional-background-color-opacity90;
+  border-radius: 20px;
 
   @media screen and (min-width: $tablet-breakpoint) {
-    .background {
-      background-color: $dark-additional-background-color-opacity90;
-    }
+    width: 560px;
+    height: 360px;
+  }
+
+  .loader-image {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 333;
+
+    width: 150px;
+    height: 150px;
   }
 }

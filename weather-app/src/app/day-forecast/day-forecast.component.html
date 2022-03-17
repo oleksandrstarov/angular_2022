@@ -1,4 +1,4 @@
-<div [ngClass]="{'dark-mode': isDarkMode}">
+<div class="day-forecast-page">
     <div class="main-board">
         <div class="title-table">
             <span class="day-time">{{currentDay}}, {{currentTime}}</span>
@@ -17,7 +17,7 @@
             <tr>
                 <td class="text-center"></td>
                 <td *ngFor="let weather of weathers" class="text-center">
-                    <img src={{weather.img}} alt="current weather icon">
+                    <img class="weather-icon" src={{weather.img}} alt="current weather icon">
                 </td>
             </tr>
             <tr>
@@ -71,13 +71,13 @@
                     <td class="border-none">Wind</td>
                 </tr>
                 <tr *ngFor="let weather of weathers">
-                    <td>{{weather.time}}</td>
+                    <td class="weather-info">{{weather.time}}</td>
                     <td class="icon-position">
                         <img src={{weather.img}} alt="current weather icon" class="weather-icon">
                     </td>
                     <td class="temp-weight">{{weather.temp}}&deg;C</td>
-                    <td>{{weather.press}}</td>
-                    <td class="border-right-none">{{weather.wind}}</td>
+                    <td class="weather-info">{{weather.press}}</td>
+                    <td class="border-right-none weather-info">{{weather.wind}}</td>
                 </tr>
                 <tr>
                     <td class="border-none"></td>
@@ -90,6 +90,6 @@
         </div>
     </div>
     <div class="button-position">
-        <button class="forecast">Week forecast</button>
+        <button class="button"(click)="goToForecast()">Week forecast</button>
     </div>
 </div>

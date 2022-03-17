@@ -13,8 +13,19 @@ import { LoaderComponent } from './loader/loader.component';
 import { FovoritesListComponent } from './fovorites-list/fovorites-list.component';
 import { DayForecastComponent } from './day-forecast/day-forecast.component';
 import { WeatherService } from './services/weather.service';
+import { DetailedColumnComponent } from './week-forecast/detailed-column/detailed-column.component';
 import { FavoriteCityListService } from './services/favorite-city-list.service';
 import { HttpErrorInterceptor } from 'src/http-interceptors/http-request-interceptor';
+import { WeekForecastComponent } from './week-forecast/week-forecast.component';
+import { SearchAutocompleteService } from './services/search-autocomplete.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -26,16 +37,26 @@ import { HttpErrorInterceptor } from 'src/http-interceptors/http-request-interce
     FooterComponent,
     LoaderComponent,
     FovoritesListComponent,
-    DayForecastComponent
+    DayForecastComponent,
+    WeekForecastComponent,
+    DetailedColumnComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [
     WeatherService,
     FavoriteCityListService,
+    SearchAutocompleteService,
     LoaderService,
     {
       provide: HTTP_INTERCEPTORS,
