@@ -70,6 +70,10 @@
   fill: $dark-text-color;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 @media screen and (max-width: $desktop-breakpoint) {
   .favorit-item-main-mobile {
     display: none;
