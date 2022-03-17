@@ -15,6 +15,15 @@ import { WeatherService } from './services/weather.service';
 import { DetailedColumnComponent } from './week-forecast/detailed-column/detailed-column.component';
 import { FavoriteCityListService } from './services/favorite-city-list.service';
 import { WeekForecastComponent } from './week-forecast/week-forecast.component';
+import { SearchAutocompleteService } from './services/search-autocomplete.service';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
@@ -33,9 +42,16 @@ import { WeekForecastComponent } from './week-forecast/week-forecast.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NoopAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
   ],
-  providers: [WeatherService, FavoriteCityListService],
+  providers: [WeatherService, FavoriteCityListService, SearchAutocompleteService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
