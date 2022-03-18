@@ -1,0 +1,30 @@
+// LIGHT THEME
+
+$light-text-color: #5a5a5a;
+$light-additional-text-color: rgba(90, 90, 90, 0.5);
+
+$light-background-color: #ffffff;
+$light-additional-background-color: #f6f4f4;
+$light-additional-background-color-opacity90: rgba(246, 244, 244, 0.9);
+
+// DARK THEME
+
+$dark-text-color: #bebdbd;
+$dark-additional-text-color: rgba(190, 189, 189, 0.5);
+
+$dark-background-color: #0f1f38;
+$dark-additional-background-color: rgba(71, 84, 103, 0.5);
+$dark-additional-background-color-opacity90: rgba(15, 31, 56, 0.9);
+
+// COMMON VARIABLES
+
+$error-color: #d93b3b;
+
+// BREAKPOINTS
+
+$before-mobile-breakpoint: 479px;
+$mobile-breakpoint: 480px;
+$before-tablet-breakpoint: 767px;
+$tablet-breakpoint: 768px;
+$before-desktop-breakpoint: 1279px;
+$desktop-breakpoint: 1280px;
