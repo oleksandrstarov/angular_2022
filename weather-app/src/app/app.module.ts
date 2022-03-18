@@ -10,7 +10,7 @@ import { TestComponent } from './test/test.component';
 import { SearchComponent } from './search/search.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoaderComponent } from './loader/loader.component';
-import { FovoritesListComponent } from './fovorites-list/fovorites-list.component';
+import { FavoriteListComponent } from './favorite-list/favorite-list.component';
 import { DayForecastComponent } from './day-forecast/day-forecast.component';
 import { WeatherService } from './services/weather.service';
 import { DetailedColumnComponent } from './week-forecast/detailed-column/detailed-column.component';
@@ -36,7 +36,7 @@ import { MatButtonModule } from '@angular/material/button';
     LandingPageComponent,
     FooterComponent,
     LoaderComponent,
-    FovoritesListComponent,
+    FavoriteListComponent,
     DayForecastComponent,
     WeekForecastComponent,
     DetailedColumnComponent
