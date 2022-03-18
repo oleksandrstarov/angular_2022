@@ -1,0 +1,196 @@
+@import "../../styles/variables";
+@import "../../styles/container";
+
+.header {
+  width: 100vw;
+  height: 60px;
+
+  color: $light-text-color;
+  background-color: $light-background-color;
+  border-bottom: 1px solid $light-text-color;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 100%;
+}
+
+.logo {
+  display: flex;
+
+  height: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  font-size: 20px;
+  line-height: 1.25;
+  text-align: center;
+
+  .logo--wrapper {
+    position: relative;
+  }
+
+  .logo--image {
+    position: absolute;
+    width: 40px;
+  }
+
+  .logo--text:not(:last-child) {
+    margin-right: 32px;
+  }
+}
+
+// this is a block-stub, until component 'favourite list' is created
+.favourite-list-block {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  // border-bottom: 1px solid #ccc;
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+
+  font-size: 16px;
+  line-height: 1.25;
+
+  .inactive {
+    color: $light-additional-text-color;
+  }
+}
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+}
+
+.theme-switcher__icon {
+  height: 20px;
+  width: 20px;
+  margin-right: 8px;
+  margin-left: 8px;
+
+  color: currentColor;
+}
+
+.theme-switcher__icon--moon {
+  height: 18px;
+  width: 18px;
+}
+
+.theme-switcher__control {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 22px;
+  padding: 3px 0;
+
+  border-radius: 50px;
+}
+
+.theme-switcher__toggle {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  margin: 0;
+  padding: 0;
+  height: 0;
+  width: 0;
+
+  opacity: 0;
+  pointer-events: none;
+}
+
+.theme-switcher__track {
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  color: transparent;
+  background-color: $light-text-color;
+
+  user-select: none;
+  border-radius: inherit;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.theme-switcher__marker {
+  position: relative;
+
+  width: 16px;
+  height: 16px;
+
+  background-color: $light-background-color;
+
+  border-radius: 50%;
+  z-index: 2;
+  pointer-events: none;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transform: translateX(3px);
+  transition: transform 250ms ease;
+  outline: none;
+}
+
+.theme-switcher__toggle:checked + .theme-switcher__track {
+  background-color: $light-background-color;
+}
+
+.theme-switcher__toggle:checked ~ .theme-switcher__marker {
+  transform: translateX(24px);
+}
+
+@media screen and (max-width: $before-tablet-breakpoint) {
+  .logo {
+    display: none;
+  }
+}
+
+@media screen and (min-width: $tablet-breakpoint) and (max-width: $before-desktop-breakpoint) {
+  .logo {
+    flex-direction: column;
+    justify-content: center;
+
+    .logo--image {
+      left: 20px;
+      top: -7px;
+    }
+  }
+}
+
+@media screen and (min-width: $desktop-breakpoint) {
+  .favourite-list-block {
+    width: 350px;
+    height: 20px;
+  }
+
+  .logo {
+    flex-direction: row;
+    align-items: center;
+
+    font-size: 24px;
+
+    .logo--wrapper {
+      margin-right: 8px;
+    }
+
+    .logo--image {
+      left: 11px;
+      top: -3px;
+    }
+  }
+}

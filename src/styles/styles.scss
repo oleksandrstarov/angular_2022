@@ -1,0 +1,160 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$weather-app-primary: mat.define-palette(mat.$indigo-palette);
+$weather-app-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$weather-app-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$weather-app-theme: mat.define-light-theme((
+  color: (
+    primary: $weather-app-primary,
+    accent: $weather-app-accent,
+    warn: $weather-app-warn,
+  )
+));
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($weather-app-theme);
+
+/* You can add global styles to this file, and also import other style files */
+@import "./variables";
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  padding-left: 0;
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.wrapper.dark-mode {
+  .button {
+    background-color: $dark-background-color;
+  }
+
+  .header {
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+    border-bottom: 1px solid $dark-text-color;
+
+    .language-switcher .inactive {
+      color: $dark-additional-text-color;
+    }
+
+    .theme-switcher__marker {
+      background-color: $light-text-color;
+    }
+  }
+
+  .footer {
+    color: $dark-text-color;
+    background-color: $dark-background-color;
+    border-top: 1px solid $dark-text-color;
+  }
+
+  .landing-page {
+    color: $dark-text-color;
+    .main-board {
+      background-color: $dark-background-color !important;
+    }
+  }
+
+  .day-forecast-page {
+    color: $dark-text-color;
+
+    .main-board {
+      background-color: $dark-background-color !important;
+      .title-table {
+        background-color: $dark-additional-background-color !important;
+      }
+    }
+
+    table {
+      border: none !important;
+      .border-left-none {
+        border-left: none !important;
+      }
+      .border {
+        color: $dark-text-color !important;
+        .weather-parameters {
+          color: $dark-text-color !important;
+        }
+        .border-none {
+          border-right: solid 1px $dark-additional-text-color !important;
+        }
+        .border-right {
+          border-right: solid 1px $dark-additional-text-color !important;
+        }
+      }
+    }
+    table td {
+      border-right: solid 1px $dark-additional-text-color !important;
+    }
+    table th {
+      border: solid 1px $dark-additional-text-color !important;
+    }
+    .main-board-mobile {
+      .forecast-info {
+        background-color: $dark-background-color !important;
+
+        .title {
+          background-color: $dark-additional-background-color !important;
+          border-bottom: 1px solid $dark-additional-text-color;
+        }
+        table {
+          background-color: $dark-background-color !important;
+        }
+      }
+    }
+  }
+
+  .visible.loader {
+    background-color: $dark-additional-background-color-opacity90;
+  }
+}
+
+html, body { height: 100%; }

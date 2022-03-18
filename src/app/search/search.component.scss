@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+@import "../../styles/container";
+
+.input-container {
+  display: inline-block;
+  position: relative;
+  padding-top: 25px;
+}
+
+mat-form-field {
+  width: 25vw;
+}
+
+::ng-deep .mat-form-field-outline-start {
+  border-radius: 50px 0 0 50px !important;
+  border: 1px 0 0 1px solid $light-text-color !important;
+  min-width: 50px !important;
+  background-color: $light-background-color;
+}
+
+::ng-deep .mat-form-field-outline-end {
+  border-radius: 0 50px 50px 0 !important;
+  border: 1px 0 0 1px solid $light-text-color !important;
+  background-color: $light-background-color;
+}
+
+::ng-deep .mat-form-field-flex > .mat-form-field-infix { padding: 0.4em 2px !important;}
+input::placeholder {
+  color: $light-text-color;
+}
+
+.error-message {
+  margin-top: -15px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  background-color: $light-background-color;
+}
+
+
+

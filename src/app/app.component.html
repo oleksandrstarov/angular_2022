@@ -1,0 +1,8 @@
+<div class="wrapper" [ngClass]="{'dark-mode': isDarkMode, 'evening': backgroundClassName === 'evening', 'day': backgroundClassName === 'day', 'night': backgroundClassName === 'night', 'morning': backgroundClassName === 'morning'}">
+  <app-header (onThemeSwitcherClick)="toggleTheme()"></app-header>
+  <app-loader [hidden]="!isLoading"></app-loader>
+  <div [hidden]="isLoading">
+    <router-outlet></router-outlet>
+  </div>
+  <app-footer></app-footer>
+</div>
