@@ -29,9 +29,7 @@ export class FavoriteListComponent implements OnInit {
   removeFavotiteItem(i:number) {
     const city = this.favoriteList[i];
     this.favoriteCityListService.removeFavorite(city);
-    if (this.favoriteList.length === 0) {
-      this.favoriteListState = false;
-    }
+    this.favoriteListState = !!this.favoriteList.length;
   }
 
   routeToDayForecast(cityName: string): void {
