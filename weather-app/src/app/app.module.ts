@@ -24,6 +24,7 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { ForecastService } from './services/forecast/forecast.service';
 
 
 
@@ -58,6 +59,7 @@ import { MatButtonModule } from '@angular/material/button';
     FavoriteCityListService,
     SearchAutocompleteService,
     LoaderService,
+    ForecastService,
     {
       provide: HTTP_INTERCEPTORS,
         useClass: HttpErrorInterceptor,

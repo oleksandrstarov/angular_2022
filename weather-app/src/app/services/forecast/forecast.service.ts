@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DayForecastService {
+export class ForecastService {
   private baseApiUrl: string;
   private apiKey: string;
 
@@ -15,7 +15,7 @@ export class DayForecastService {
     this.apiKey = environment.apiKey;
   }
 
-  getDayForecast(location: string): Observable<Object> {
-    return this.httpClient.get(`${this.baseApiUrl}/forecast.json?key=${this.apiKey}&q=${location}&days=1`);
+  getDayForecast(location: string, days: number): Observable<Object> {
+    return this.httpClient.get(`${this.baseApiUrl}/forecast.json?key=${this.apiKey}&q=${location}&days=${days}`);
   }
 }
