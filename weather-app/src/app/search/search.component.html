@@ -1,0 +1,18 @@
+<div class="input-container">
+    <form class="example-form">
+        <mat-form-field class="example-full-width" appearance="outline" floatLabel="never">
+          <input #stateInput type="text" placeholder="Enter a city ..." aria-label="City" matInput [formControl]="myControl" [matAutocomplete]="auto" [(ngModel)]="inputValue" (keyup.enter)="routeToDayForecast($event)">
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+              {{option.name}}
+            </mat-option>
+          </mat-autocomplete>
+            <mat-icon matSuffix (click)="routeToDayForecast($event)">search</mat-icon>
+        </mat-form-field>
+      </form>
+</div>
+<div class="error-message" *ngIf="showNotFoundError">
+    <i class="material-icons" style="color:red">warning</i>
+    The city was not found!
+</div>
+

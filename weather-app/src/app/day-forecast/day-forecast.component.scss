@@ -1,0 +1,192 @@
+@import "../../styles/styles.scss";
+@import "../../styles/variables";
+@import "../../styles/button";
+
+.day-forecast-page {
+  color: $light-text-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .main-board {
+    width: 80%;
+    height: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 70px;
+
+    background-color: $light-background-color;
+    border-radius: 20px;
+    @media screen and (max-width: $before-tablet-breakpoint) {
+      display: none;
+    }
+    .title-table {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      height: 100px;
+      align-items: center;
+      background-color: $light-additional-background-color;
+      border-radius: 20px 20px 0 0;
+      .day-time {
+        font-size: 30px;
+        font-weight: 400;
+      }
+      .location {
+        font-size: 50px;
+        font-weight: 500;
+      }
+      .city-star {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+
+    .weather-icon {
+      width: 64px;
+      height: 64px;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    .text-center {
+      text-align: center;
+      font-weight: 400;
+    }
+    .border {
+      .border-right {
+        border-right: solid 1px $dark-text-color;
+        font-weight: 400;
+      }
+    }
+    .weather-paramenters {
+      font-weight: 500;
+      font-size: 24px;
+      padding: 0 0 0 2rem;
+    }
+    .weather-paramenters--bold {
+      font-weight: 500;
+    }
+    .padding-bottom {
+      padding-bottom: 2rem;
+    }
+
+    tr:first-child {
+      border-bottom: solid 1px $dark-text-color;
+      font-size: 20px;
+      border: none;
+    }
+
+    td {
+      font-weight: 400;
+      font-size: 24px;
+      width: 4%;
+      border-right: solid 1px $dark-text-color;
+      padding: 3px;
+    }
+
+    td:last-child,
+    th:last-child {
+      border-right: none !important;
+    }
+
+    th {
+      border: solid 1px $dark-text-color;
+      padding: 5px;
+    }
+
+    th:first-child {
+      border-left: none;
+    }
+  }
+
+  .button-position {
+    padding-top: 2%;
+    @media screen and (max-width: $mobile-breakpoint) {
+      padding-top: 1rem;
+    }
+  }
+
+  .main-board-mobile {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-right: auto;
+    margin-left: auto;
+
+    @media screen and (min-width: $tablet-breakpoint) {
+      display: none;
+    }
+    .forecast-info {
+      background-color: $light-background-color;
+      width: 90%;
+      text-align: center;
+      border-radius: 20px;
+
+      @media screen and (min-width: $mobile-breakpoint) and (max-width: $before-tablet-breakpoint) {
+        width: 400px;
+      }
+
+      .title {
+        background-color: $light-additional-background-color;
+        border-radius: 20px 20px 0 0;
+        display: grid;
+        grid-template-columns: 10fr 2fr;
+
+        .main-info {
+          text-align: left;
+          padding-left: 25px;
+          padding-top: 15px;
+          .location {
+            font-size: 36px;
+            font-weight: 500;
+          }
+          .date {
+            font-size: 30px;
+            font-weight: 400;
+            margin-bottom: 10px;
+          }
+        }
+        .star-icon {
+          padding-top: 18px;
+          width: 30px;
+          height: 30px;
+        }
+      }
+
+      table {
+        border-radius: 0 0 20px 20px;
+        background-color: $light-background-color;
+        table-layout: fixed;
+        width: 100%;
+
+        td {
+          padding: 2px;
+        }
+
+        .temp-weight {
+          font-weight: 600;
+        }
+        .weather-info {
+          font-size: 18px;
+        }
+        .border-none {
+          border: 0;
+          font-size: 18px;
+          line-height: 21px;
+        }
+        .icon-position {
+          text-align: -webkit-center;
+          .weather-icon {
+            width: 55px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+}

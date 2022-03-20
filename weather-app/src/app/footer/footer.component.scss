@@ -1,0 +1,37 @@
+@import "../../styles/variables";
+@import "../../styles/container";
+
+.footer {
+  position: fixed;
+  bottom: 0;
+
+  width: 100vw;
+  height: 60px;
+
+  color: $light-text-color;
+  background-color: $light-background-color;
+
+  border-top: 1px solid $light-text-color;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+
+  @media screen and (max-width: $before-desktop-breakpoint) {
+    flex-direction: column;
+
+    .footer__text--line {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $desktop-breakpoint) {
+    .footer__text:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}

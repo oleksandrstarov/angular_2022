@@ -1,0 +1,149 @@
+<div class="container">
+    <div class="main-board">
+        <div class="main-info">
+            <div class="main-info__title-container">
+                <div class="main-info__title">{{ currentCity }}, {{ currentCountry }}</div>
+                <div class="main-info__title-favorit">
+                    <span (click)="toggleFavorite()">
+                        <img src={{starImagePath}} alt="star">
+                    </span>
+                </div>
+            </div>
+            <div class="main-info__values-container">
+                <div class="values-column-list">
+                    <div class="values-column__title-list"></div>
+                    <div class="values-column__values-list">
+                        <div></div>
+                        <div>Temp, °C</div>
+                        <div>Feels, °C</div>
+                        <div>Press, mmGh</div>
+                        <div>Humidity, %</div>
+                        <div>Wind, m/s</div>
+                    </div>
+                </div>
+
+                <div class="values-column" *ngIf="firstColumn" (click)="changeStatus(1)">
+                    <div class="values-column__title">Mon</div>
+                    <div class="values-column__values">
+                        <div class="icon-weather__container">
+                                <img class="icon-weather" src={{curentWeatherIconUrl}} alt="current weather image">
+                        </div>
+                        <div class="temp">8 <span class="mobile">°C</span></div>
+                        <div class="feels">10</div>
+                        <div class="press">990 <span class="mobile">mmGh</span></div>
+                        <div class="humidity">40</div>
+                        <div class="wind">55</div>
+                    </div>
+                </div>
+                <div class="values-column-cheked" *ngIf="firstColumnChecked">
+                <app-detailed-column></app-detailed-column>
+                </div>
+       
+                <div class="values-column" *ngIf="secondColumn" (click)="changeStatus(2)">
+                    <div class="values-column__title">Tue</div>
+                    <div class="values-column__values">
+                        <div class="icon-weather">
+                            <img src={{curentWeatherIconUrl}} alt="current weather image" width="70px" height="70px">
+                        </div>
+                        <div class="temp">8 <span class="mobile">°C</span></div>
+                        <div class="feels">10</div>
+                        <div class="press">990 <span class="mobile">mmGh</span></div>
+                        <div class="humidity">40</div>
+                        <div class="wind">55</div>
+                    </div>
+                </div>
+                <div class="values-column-cheked" *ngIf="secondColumnChecked">
+                    <app-detailed-column></app-detailed-column>
+                </div>
+                             
+                <div class="values-column" *ngIf="thirdColumn" (click)="changeStatus(3)">
+                    <div class="values-column__title">Wed</div>
+                    <div class="values-column__values">
+                        <div class="icon-weather">
+                            <img src={{curentWeatherIconUrl}} alt="current weather image" width="70px" height="70px">
+                        </div>
+                        <div class="temp">8 <span class="mobile">°C</span></div>
+                        <div class="feels">10</div>
+                        <div class="press">990 <span class="mobile">mmGh</span></div>
+                        <div class="humidity">40</div>
+                        <div class="wind">55</div>
+                    </div>
+                </div>
+                <div class="values-column-cheked" *ngIf="thirdColumnChecked">
+                    <app-detailed-column></app-detailed-column>
+                </div>
+              
+                <div class="values-column" *ngIf="fourthColumn" (click)="changeStatus(4)">
+                    <div class="values-column__title">Thu</div>
+                    <div class="values-column__values">
+                        <div class="icon-weather">
+                            <img src={{curentWeatherIconUrl}} alt="current weather image" width="70px" height="70px">
+                        </div>
+                        <div class="temp">8 <span class="mobile">°C</span></div>
+                        <div class="feels">10</div>
+                        <div class="press">990 <span class="mobile">mmGh</span></div>
+                        <div class="humidity">40</div>
+                        <div class="wind">55</div>
+                    </div>
+                </div>
+                <div class="values-column-cheked" *ngIf="fourthColumnChecked">
+                    <app-detailed-column></app-detailed-column>
+                </div>
+             
+                <div class="values-column" *ngIf="fifthColumn" (click)="changeStatus(5)">
+                    <div class="values-column__title">Fri</div>
+                    <div class="values-column__values">
+                        <div class="icon-weather">
+                            <img src={{curentWeatherIconUrl}} alt="current weather image" width="70px" height="70px">
+                        </div>
+                        <div class="temp">8 <span class="mobile">°C</span></div>
+                        <div class="feels">10</div>
+                        <div class="press">990 <span class="mobile">mmGh</span></div>
+                        <div class="humidity">40</div>
+                        <div class="wind">55</div>
+                    </div>
+                </div>
+                <div class="values-column-cheked" *ngIf="fifthColumnChecked">
+                    <app-detailed-column></app-detailed-column>
+                </div>
+            
+                <div class="values-column" *ngIf="sixthColumn" (click)="changeStatus(6)">
+                    <div class="values-column__title">Sat</div>
+                    <div class="values-column__values">
+                        <div class="icon-weather">
+                            <img src={{curentWeatherIconUrl}} alt="current weather image" width="70px" height="70px">
+                        </div>
+                        <div class="temp">8 <span class="mobile">°C</span></div>
+                        <div class="feels">10</div>
+                        <div class="press">990 <span class="mobile">mmGh</span></div>
+                        <div class="humidity">40</div>
+                        <div class="wind">55</div>
+                    </div>
+                </div>
+                <div class="values-column-cheked" *ngIf="sixthColumnChecked">
+                    <app-detailed-column></app-detailed-column>
+                </div>
+
+                <div class="values-column" *ngIf="sevenColumn" (click)="changeStatus(7)">
+                    <div class="values-column__title">San</div>
+                    <div class="values-column__values">
+                        <div class="icon-weather">
+                            <img src={{curentWeatherIconUrl}} alt="current weather image" width="70px" height="70px">
+                        </div>
+                        <div class="temp">8 <span class="mobile">°C</span></div>
+                        <div class="feels">10</div>
+                        <div class="press">990 <span class="mobile">mmGh</span></div>
+                        <div class="humidity">40</div>
+                        <div class="wind">55</div>
+                    </div>
+                </div>
+                <div class="values-column-cheked" *ngIf="sevenColumnChecked">
+                    <app-detailed-column></app-detailed-column>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button type="button" class="button" (click)="goToDetails()">Day forecast</button>
+    </div>
+</div>
