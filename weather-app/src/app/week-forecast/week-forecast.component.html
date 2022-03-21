@@ -1,72 +1,77 @@
-<div class="container">
-    <div class="main-board">
-        <div class="main-info">
-            <div class="main-info__title-container">
-                <div class="main-info__title">{{ currentCity }}, {{ currentCountry }}</div>
-                <div class="main-info__title-favorite">
-                    <span (click)="toggleFavorite()">
-                        <img src={{starImagePath}} alt="star">
-                    </span>
-                </div>
-            </div>
-            <div class="main-info__values-container">
-                <div class="values-column-list">
-                    <div class="values-column__title-list"></div>
-                    <div class="values-column__values-list">
-                        <div></div>
-                        <div>Temp, °C</div>
-                        <div>Feels, °C</div>
-                        <div>Press, mmGh</div>
-                        <div>Humidity, %</div>
-                        <div>Wind, k/h</div>
+<div class="week-forecast-page">
+    <div class="container">
+        <div class="main-board">
+            <div class="main-info">
+                <div class="main-info__title-container">
+                    <div class="main-info__title">{{ currentCity }}, {{ currentCountry }}</div>
+                    <div class="main-info__title-favorite">
+                        <span (click)="toggleFavorite()">
+                            <img src={{starImagePath}} alt="star">
+                        </span>
                     </div>
                 </div>
-
-                <div *ngFor="let day of forecast" class="values-column">
-                    <div class="values-column__title">{{getDayAndTime(day)}}</div>
-                    <div class="values-column__values">
-                        <div *ngFor="let time of day" class="values-column__subcolumn">
-                            <div class="values-column__time">
-                                <p class="time">{{time.time.split(' ')[1]}}</p>
-                            </div>
-                            <div class="icon-weather">
-                                <img src={{getConditionIconUrl(time)}} alt="current weather image" width="75px" height="75px">
-                            </div>
-                            <div class="values-column__text--bold">{{parseNumber(time.temp_c)}}</div>
-                            <div class="values-column__text--bold">{{parseNumber(time.feelslike_c)}}</div>
-                            <div>{{time.pressure_mb}}</div>
-                            <div>{{time.humidity}}</div>
-                            <div>{{parseNumber(time.wind_kph)}}</div>
+                <div class="main-info__values-container">
+                    <div class="values-column-list">
+                        <div class="values-column__title-list"></div>
+                        <div class="values-column__values-list">
+                            <div></div>
+                            <div>Temp, °C</div>
+                            <div>Feels, °C</div>
+                            <div>Press, mmGh</div>
+                            <div>Humidity, %</div>
+                            <div>Wind, k/h</div>
                         </div>
                     </div>
-                </div>
-
-                <div *ngFor="let day of forecast" class="values-column-mobile">
-                    <div class="values-column-mobile__title">{{getDayAndTime(day)}}</div>
-                    <div class="values-column-mobile__values">
-                        <div class="weather-icon__container">
-                            <img class="weather-icon__mobile" src={{getConditionIconUrlMobile(day)}} alt="current weather image">
+    
+                    <div *ngFor="let day of forecast" class="values-column">
+                        <div class="values-column__title">{{getDayAndTime(day)}}</div>
+                        <div class="values-column__values">
+                            <div *ngFor="let time of day" class="values-column__subcolumn">
+                                <div class="values-column__time">
+                                    <p class="time">{{time.time.split(' ')[1]}}</p>
+                                </div>
+                                <div class="icon-weather">
+                                    <img src={{getConditionIconUrl(time)}} alt="current weather image" width="75px"
+                                        height="75px">
+                                </div>
+                                <div class="values-column__text--bold">{{parseNumber(time.temp_c)}}</div>
+                                <div class="values-column__text--bold">{{parseNumber(time.feelslike_c)}}</div>
+                                <div>{{time.pressure_mb}}</div>
+                                <div>{{time.humidity}}</div>
+                                <div>{{parseNumber(time.wind_kph)}}</div>
+                            </div>
                         </div>
-                        <div>
-                            <div>Temp</div>
-                            <div>Feels like</div>
-                            <div>Pressure</div>
-                            <div>Humidity</div>
-                            <div>Wind</div>
-                        </div>
-                        <div>
-                            <div class="values-column-mobile__item">{{parseNumber(day[1].temp_c)}} °C</div>
-                            <div class="values-column-mobile__item">{{parseNumber(day[1].feelslike_c)}} °C</div>
-                            <div class="values-column-mobile__item">{{day[1].pressure_mb}} mmGh</div>
-                            <div class="values-column-mobile__item">{{day[1].humidity}} %</div>
-                            <div class="values-column-mobile__item">{{parseNumber(day[1].wind_kph)}} k/h</div>
+                    </div>
+    
+                    <div *ngFor="let day of forecast" class="values-column-mobile">
+                        <div class="values-column-mobile__title">{{getDayAndTime(day)}}</div>
+                        <div class="values-column-mobile__values">
+                            <div class="weather-icon__container">
+                                <img class="weather-icon__mobile" src={{getConditionIconUrlMobile(day)}}
+                                    alt="current weather image">
+                            </div>
+                            <div>
+                                <div>Temp</div>
+                                <div>Feels like</div>
+                                <div>Pressure</div>
+                                <div>Humidity</div>
+                                <div>Wind</div>
+                            </div>
+                            <div>
+                                <div class="values-column-mobile__item">{{parseNumber(day[1].temp_c)}} °C</div>
+                                <div class="values-column-mobile__item">{{parseNumber(day[1].feelslike_c)}} °C</div>
+                                <div class="values-column-mobile__item">{{day[1].pressure_mb}} mmGh</div>
+                                <div class="values-column-mobile__item">{{day[1].humidity}} %</div>
+                                <div class="values-column-mobile__item">{{parseNumber(day[1].wind_kph)}} k/h</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="buttons">
+            <button type="button" class="button" (click)="goToDetails()">1-Day forecast</button>
+        </div>
     </div>
-    <div class="buttons">
-        <button type="button" class="button" (click)="goToDetails()">1-Day forecast</button>
-    </div>
+
 </div>

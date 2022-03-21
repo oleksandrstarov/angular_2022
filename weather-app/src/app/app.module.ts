@@ -13,7 +13,6 @@ import { LoaderComponent } from './loader/loader.component';
 import { FovoritesListComponent } from './fovorites-list/fovorites-list.component';
 import { DayForecastComponent } from './day-forecast/day-forecast.component';
 import { WeatherService } from './services/weather.service';
-import { DetailedColumnComponent } from './week-forecast/detailed-column/detailed-column.component';
 import { FavoriteCityListService } from './services/favorite-city-list.service';
 import { HttpErrorInterceptor } from 'src/http-interceptors/http-request-interceptor';
 import { WeekForecastComponent } from './week-forecast/week-forecast.component';
@@ -40,7 +39,6 @@ import { ForecastService } from './services/forecast/forecast.service';
     FovoritesListComponent,
     DayForecastComponent,
     WeekForecastComponent,
-    DetailedColumnComponent
   ],
   imports: [
     BrowserModule,
