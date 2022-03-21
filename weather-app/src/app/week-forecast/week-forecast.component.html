@@ -41,9 +41,9 @@
                     </div>
                 </div>
 
-                <div *ngFor="let day of forecast" class="values-column__mobile">
-                    <div class="values-column-cheked__title">{{getDayAndTime(day)}}</div>
-                    <div class="values-column-cheked__values">
+                <div *ngFor="let day of forecast" class="values-column-mobile">
+                    <div class="values-column-mobile__title">{{getDayAndTime(day)}}</div>
+                    <div class="values-column-mobile__values">
                         <div class="weather-icon__container">
                             <img class="weather-icon__mobile" src={{getConditionIconUrlMobile(day)}} alt="current weather image">
                         </div>
@@ -55,11 +55,11 @@
                             <div>Wind</div>
                         </div>
                         <div>
-                            <div class="values-column-cheked__item">{{parseNumber(day[1].temp_c)}} °C</div>
-                            <div class="values-column-cheked__item">{{parseNumber(day[1].feelslike_c)}} °C</div>
-                            <div class="values-column-cheked__item">{{day[1].pressure_mb}} mmGh</div>
-                            <div class="values-column-cheked__item">{{day[1].humidity}} %</div>
-                            <div class="values-column-cheked__item">{{parseNumber(day[1].wind_kph)}} k/h</div>
+                            <div class="values-column-mobile__item">{{parseNumber(day[1].temp_c)}} °C</div>
+                            <div class="values-column-mobile__item">{{parseNumber(day[1].feelslike_c)}} °C</div>
+                            <div class="values-column-mobile__item">{{day[1].pressure_mb}} mmGh</div>
+                            <div class="values-column-mobile__item">{{day[1].humidity}} %</div>
+                            <div class="values-column-mobile__item">{{parseNumber(day[1].wind_kph)}} k/h</div>
                         </div>
                     </div>
                 </div>
