@@ -3,7 +3,7 @@
         <div class="main-info">
             <div class="main-info__title-container">
                 <div class="main-info__title">{{ currentCity }}, {{ currentCountry }}</div>
-                <div class="main-info__title-favorit">
+                <div class="main-info__title-favorite">
                     <span (click)="toggleFavorite()">
                         <img src={{starImagePath}} alt="star">
                     </span>
@@ -22,10 +22,9 @@
                     </div>
                 </div>
 
-
-                <div *ngFor="let day of forecast" class="values-column-cheked">
+                <div *ngFor="let day of forecast" class="values-column">
                     <div class="values-column__title">{{getDayAndTime(day)}}</div>
-                    <div class="values-column__values-cheked">
+                    <div class="values-column__values">
                         <div *ngFor="let time of day" class="values-column__subcolumn">
                             <div class="values-column__time">
                                 <p class="time">{{time.time.split(' ')[1]}}</p>
@@ -33,8 +32,8 @@
                             <div class="icon-weather">
                                 <img src={{getConditionIconUrl(time)}} alt="current weather image" width="75px" height="75px">
                             </div>
-                            <div>{{parseNumber(time.temp_c)}}</div>
-                            <div>{{parseNumber(time.feelslike_c)}}</div>
+                            <div class="values-column__text--bold">{{parseNumber(time.temp_c)}}</div>
+                            <div class="values-column__text--bold">{{parseNumber(time.feelslike_c)}}</div>
                             <div>{{time.pressure_mb}}</div>
                             <div>{{time.humidity}}</div>
                             <div>{{parseNumber(time.wind_kph)}}</div>
@@ -42,7 +41,7 @@
                     </div>
                 </div>
 
-                <div *ngFor="let day of forecast" class="values-column-cheked__mobile">
+                <div *ngFor="let day of forecast" class="values-column__mobile">
                     <div class="values-column-cheked__title">{{getDayAndTime(day)}}</div>
                     <div class="values-column-cheked__values">
                         <div class="weather-icon__container">
@@ -68,6 +67,6 @@
         </div>
     </div>
     <div class="buttons">
-        <button type="button" class="button" (click)="goToDetails()">Day forecast</button>
+        <button type="button" class="button" (click)="goToDetails()">1-Day forecast</button>
     </div>
 </div>
