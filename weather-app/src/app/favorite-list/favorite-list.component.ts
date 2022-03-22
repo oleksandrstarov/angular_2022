@@ -1,13 +1,13 @@
-import { FavoriteCityListService } from './../services/favorite-city-list.service';
+import { FavoriteCityListService } from '../services/favorite-city-list.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-fovorites-list',
-  templateUrl: './fovorites-list.component.html',
-  styleUrls: ['./fovorites-list.component.scss']
+  selector: 'app-favorite-list',
+  templateUrl: './favorite-list.component.html',
+  styleUrls: ['./favorite-list.component.scss']
 })
-export class FovoritesListComponent implements OnInit {
+export class FavoriteListComponent implements OnInit {
   constructor(private favoriteCityListService: FavoriteCityListService, private router: Router) {
   }
   
@@ -29,6 +29,7 @@ export class FovoritesListComponent implements OnInit {
   removeFavotiteItem(i:number) {
     const city = this.favoriteList[i];
     this.favoriteCityListService.removeFavorite(city);
+    this.favoriteListState = !!this.favoriteList.length;
   }
 
   routeToDayForecast(cityName: string): void {
