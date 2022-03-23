@@ -19,7 +19,7 @@
                             <div>Feels, °C</div>
                             <div>Press, mmGh</div>
                             <div>Humidity, %</div>
-                            <div>Wind, k/h</div>
+                            <div>Wind, km/h</div>
                         </div>
                     </div>
     
@@ -34,11 +34,11 @@
                                     <img src={{getConditionIconUrl(time)}} alt="current weather image" width="75px"
                                         height="75px">
                                 </div>
-                                <div class="values-column__text--bold">{{parseNumber(time.temp_c)}}</div>
-                                <div class="values-column__text--bold">{{parseNumber(time.feelslike_c)}}</div>
+                                <div class="values-column__text--bold">{{ time.temp_c | number:'1.0-0' }}</div>
+                                <div class="values-column__text--bold">{{time.feelslike_c | number:'1.0-0' }}</div>
                                 <div>{{time.pressure_mb}}</div>
                                 <div>{{time.humidity}}</div>
-                                <div>{{parseNumber(time.wind_kph)}}</div>
+                                <div>{{time.wind_kph | number:'1.0-0'}}</div>
                             </div>
                         </div>
                     </div>
@@ -58,11 +58,11 @@
                                 <div>Wind</div>
                             </div>
                             <div>
-                                <div class="values-column-mobile__item">{{parseNumber(day[1].temp_c)}} °C</div>
-                                <div class="values-column-mobile__item">{{parseNumber(day[1].feelslike_c)}} °C</div>
+                                <div class="values-column-mobile__item">{{day[1].temp_c | number:'1.0-0'}} °C</div>
+                                <div class="values-column-mobile__item">{{day[1].feelslike_c | number:'1.0-0'}} °C</div>
                                 <div class="values-column-mobile__item">{{day[1].pressure_mb}} mmGh</div>
                                 <div class="values-column-mobile__item">{{day[1].humidity}} %</div>
-                                <div class="values-column-mobile__item">{{parseNumber(day[1].wind_kph)}} k/h</div>
+                                <div class="values-column-mobile__item">{{day[1].wind_kph | number:'1.0-0'}} km/h</div>
                             </div>
                         </div>
                     </div>

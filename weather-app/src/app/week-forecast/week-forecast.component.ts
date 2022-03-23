@@ -58,10 +58,6 @@ export class WeekForecastComponent implements OnInit {
       })
     })
   }
-
-  parseNumber(num: any): number {
-    return parseInt(num);
-  }
   
   getDayAndTime(obj: any): string {
     const date = new Date(obj[0].time);
