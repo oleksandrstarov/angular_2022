@@ -130,10 +130,8 @@
   }
 
   .button-position {
-    // padding-top: 2%;
     margin-top: 45px;
     @media screen and (max-width: $mobile-breakpoint) {
-      // padding-top: 1rem;
       margin-top: 33px;
     }
   }

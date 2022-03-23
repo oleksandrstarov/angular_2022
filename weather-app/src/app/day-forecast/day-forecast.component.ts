@@ -4,6 +4,7 @@ import { FavoriteCityListService } from '../services/favorite-city-list.service'
 import { ForecastService } from '../services/forecast/forecast.service';
 import { Observable } from 'rxjs';
 import { byCountry } from 'country-code-lookup';
+import { WeekDays } from '../shared/enums/weekdays.enum';
 
 @Component({
   selector: 'app-day-forecast',
@@ -22,8 +23,7 @@ export class DayForecastComponent implements OnInit, DoCheck {
   public currentDay: any = 'Monday';
   public currentTime: string = '06:00';
 
-  private weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  private indexArr = [0, 3, 6, 9, 12, 15, 18, 21]
+  private hoursToShowInTemplate = [0, 3, 6, 9, 12, 15, 18, 21]
 
   starImagePath: string = '';
 
@@ -64,20 +64,16 @@ export class DayForecastComponent implements OnInit, DoCheck {
       this.currentCity = data.location.name;
       this.currentCountry = byCountry(data.location.country)?.iso2 ?? 'null';
       const date = new Date(data.location.localtime);
-      this.currentDay = this.weekday[date.getDay()];
+      this.currentDay = WeekDays[date.getDay()];
       this.currentTime = data.location.localtime.split(' ')[1];
       this.forecast = data.forecast.forecastday[0].hour.filter((item: any, index: number) => {
-        if (this.indexArr.includes(index)) {
+        if (this.hoursToShowInTemplate.includes(index)) {
           return item;
         }
       });
 
       this.starImagePath = this.getStarImagePath();
     })
-  }
-
-  parseNumber(num: any) {
-    return parseInt(num);
   }
   
   public getConditionIconUrl(obj: any): string {
