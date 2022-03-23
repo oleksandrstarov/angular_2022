@@ -55,19 +55,21 @@ export class SearchComponent {
       );
   }
 
-  searchLocation(input: string = this.defaultCity) {
-    if (input) {
-      console.log(`search ${input}`);
-    }
-  }
-
   routeToDayForecast(event: any): void {
-    if (this.showNotFoundError === false && this.isInputValid) {
+    if (this.showNotFoundError === false && this.isInputValid && this.inputValue !== '') {
       this.autocomplete.closePanel();
       this.router.navigate(['details', this.inputValue]);
+      this.inputValue = ''; 
     }
 
     event.stopPropagation();
   }
-  
+
+  selectCity(event: any) {
+    const selectedValue = event.option.value;
+    this.autocomplete.closePanel();
+    this.inputValue = ''; 
+
+    this.router.navigate(['details', selectedValue]);
+ }
 }

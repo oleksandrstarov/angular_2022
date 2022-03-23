@@ -63,6 +63,9 @@ export class DayForecastComponent implements OnInit, DoCheck {
     this.forecastData.subscribe((data: any) => {
       this.currentCity = data.location.name;
       this.currentCountry = byCountry(data.location.country)?.iso2 ?? 'null';
+      if (data.location.country === 'United States of America') {
+        this.currentCountry = 'US';
+      };
       const date = new Date(data.location.localtime);
       this.currentDay = this.weekday[date.getDay()];
       this.currentTime = data.location.localtime.split(' ')[1];

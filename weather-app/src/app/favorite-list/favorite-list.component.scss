@@ -10,20 +10,11 @@
   position: relative;
 }
 
-.favorit-list-main-arrow {
-  position: relative;
-}
-
 .favorit-list-main-arrow::after {
-  content: " ";
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 0 12px 12px 12px;
-  border-color: transparent transparent $light-background-color transparent;
-  position: absolute;
-  top: 50px;
-  left: 10px;
+  width: 400px;
+  overflow: hidden;
+  height: 20px;
+  flex-flow: wrap;
 }
 
 .favorite-list {
@@ -34,12 +25,15 @@
   width: auto;
   height: auto;
   position: absolute;
-  top: 80px;
+  top: 65px;
   padding: 10px;
+  margin-left: -19px;
   background-color: $light-background-color;
-  border-right: 1px solid $light-text-color;
-  border-bottom: 1px solid $light-text-color;
-  border-left: 1px solid $light-text-color;
+  border: 1px solid $light-text-color;
+  border-radius: 20px;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border: none;
+  transition: transform 250ms ease;
 }
 
 .favorit-item-additional {

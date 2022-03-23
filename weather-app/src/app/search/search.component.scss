@@ -8,7 +8,7 @@
 }
 
 mat-form-field {
-  width: 50vw;
+  width: 400px;
   @media screen and (min-width: $tablet-breakpoint) {
     width: 400px;
   }
@@ -16,15 +16,22 @@ mat-form-field {
 
 ::ng-deep .mat-form-field-outline-start {
   border-radius: 50px 0 0 50px !important;
-  border: 1px 0 0 1px solid $light-text-color !important;
-  min-width: 50px !important;
+  border: 1px 0 0 1px solid $light-additional-text-color !important;
+  border-color: $light-text-color !important;
+  min-width: 50% !important;
   background-color: $light-background-color;
 }
 
 ::ng-deep .mat-form-field-outline-end {
   border-radius: 0 50px 50px 0 !important;
-  border: 1px 0 0 1px solid $light-text-color !important;
+  border: 1px 0 0 1px solid $light-additional-text-color !important;
   background-color: $light-background-color;
+  border-color: $light-text-color !important;
+}
+
+::ng-deep .mat-option-text {
+  color: $light-text-color;
+  font-family: "Montserrat", sans-serif;
 }
 
 ::ng-deep .mat-form-field-flex > .mat-form-field-infix {
@@ -32,13 +39,34 @@ mat-form-field {
 }
 
 input::placeholder {
+  color: $dark-text-color;
+  font-family: "Montserrat", sans-serif;
+}
+
+.placeholder-position {
+  margin-bottom: 3.5px;
   color: $light-text-color;
+  font-family: "Montserrat", sans-serif;
 }
 
 .error-message {
-  margin-top: -15px;
   position: absolute;
   display: flex;
   align-items: center;
-  background-color: $light-background-color;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 65px;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border: none;
+  transition: transform 250ms ease;
+}
+
+@media screen and (max-width: $tablet-breakpoint) {
+  mat-form-field {
+    width: 50vw;
+  }
 }
