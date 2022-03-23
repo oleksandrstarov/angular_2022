@@ -4,12 +4,15 @@ import { byCountry } from 'country-code-lookup';
 import { Observable } from 'rxjs';
 import { FavoriteCityListService } from '../services/favorite-city-list.service';
 import { ForecastService } from '../services/forecast/forecast.service';
+import { WeekDays } from '../shared/enums/weekdays.enum';
+import { Month } from '../shared/enums/months.enum';
 
 @Component({
   selector: 'app-week-forecast',
   templateUrl: './week-forecast.component.html',
   styleUrls: ['./week-forecast.component.scss']
 })
+  
 export class WeekForecastComponent implements OnInit {
   public searchQuery: string = '';
   public forecastData: Observable<Object> = new Observable();
@@ -17,9 +20,7 @@ export class WeekForecastComponent implements OnInit {
   public currentCountry: string = '';
   public forecast!: any;
 
-  private indexArr = [10, 14, 18];
-  private weekday = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-  private month = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'];
+  private hoursToShowInTemplate = [10, 14, 18];
 
   starImagePath: string = '';
 
@@ -50,7 +51,7 @@ export class WeekForecastComponent implements OnInit {
 
       this.forecast = data.forecast.forecastday.map((day: any) => {
         day.hour = day.hour.filter((item: any, index: number) => {
-          if (this.indexArr.includes(index)) {
+          if (this.hoursToShowInTemplate.includes(index)) {
            return item;
           }
         })
@@ -61,7 +62,7 @@ export class WeekForecastComponent implements OnInit {
   
   getDayAndTime(obj: any): string {
     const date = new Date(obj[0].time);
-      return `${this.weekday[date.getDay()]}, ${obj[0].time.split('-')[2].split(' ')[0]}.${this.month[date.getMonth()]}`;
+      return `${WeekDays[date.getDay()]}, ${Month[date.getMonth()]} ${obj[0].time.split('-')[2].split(' ')[0]}`;
   }
 
   getConditionIconUrlMobile(obj: any): string {
