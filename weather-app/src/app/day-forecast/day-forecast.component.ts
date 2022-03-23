@@ -1,7 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FavoriteCityListService } from '../services/favorite-city-list.service';
-import { DayForecastService } from '../services/day-forecast/day-forecast.service';
+import { ForecastService } from '../services/forecast/forecast.service';
 import { Observable } from 'rxjs';
 import { byCountry } from 'country-code-lookup';
 
@@ -30,7 +30,7 @@ export class DayForecastComponent implements OnInit, DoCheck {
   constructor(
     private favoriteCityListService: FavoriteCityListService,
     private _router: Router,
-    private dayForecastService: DayForecastService,
+    private forecastService: ForecastService,
     private route: ActivatedRoute
   ) {
     this.route.params.subscribe(params => this.searchQuery = params['city']);
@@ -59,7 +59,7 @@ export class DayForecastComponent implements OnInit, DoCheck {
   }
   
   getForecast() {
-    this.forecastData = this.dayForecastService.getDayForecast(this.searchQuery);
+    this.forecastData = this.forecastService.getDayForecast(this.searchQuery, 1);
     this.forecastData.subscribe((data: any) => {
       this.currentCity = data.location.name;
       this.currentCountry = byCountry(data.location.country)?.iso2 ?? 'null';
@@ -79,7 +79,7 @@ export class DayForecastComponent implements OnInit, DoCheck {
   parseNumber(num: any) {
     return parseInt(num);
   }
-
+  
   public getConditionIconUrl(obj: any): string {
     const currentHour = parseInt(obj.time.split(' ')[1]);
     const isDay: boolean = currentHour >= 4 && currentHour <= 20;
