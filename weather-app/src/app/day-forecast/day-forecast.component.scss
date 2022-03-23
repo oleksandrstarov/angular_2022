@@ -9,36 +9,54 @@
   align-items: center;
 
   .main-board {
-    width: 80%;
-    height: 5%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
 
     background-color: $light-background-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
     border-radius: 20px;
-    @media screen and (max-width: $before-tablet-breakpoint) {
+
+    @media screen and (max-width: 868px) {
       display: none;
     }
+
+    @media screen and (min-width: $desktop-breakpoint) {
+      width: 1150px;
+    }
+
     .title-table {
       display: flex;
-      flex-direction: row;
-      justify-content: space-around;
-      height: 100px;
       align-items: center;
+      justify-content: space-between;
+      height: 100px;
+
       background-color: $light-additional-background-color;
       border-radius: 20px 20px 0 0;
+
       .day-time {
         font-size: 30px;
         font-weight: 400;
+        margin-left: 15px;
+        margin-right: 25px;
+
+        @media screen and (min-width: $tablet-breakpoint) and (max-width: $before-desktop-breakpoint) {
+          font-size: 24px;
+        }
       }
       .location {
         font-size: 50px;
         font-weight: 500;
+
+        @media screen and (min-width: $tablet-breakpoint) and (max-width: $before-desktop-breakpoint) {
+          font-size: 35px;
+        }
       }
       .city-star {
-        width: 30px;
-        height: 30px;
+        margin-right: 15px;
+        margin-left: 25px;
       }
     }
   }
@@ -47,67 +65,76 @@
     width: 100%;
     border-collapse: collapse;
 
+    .border {
+      font-size: 20px;
+
+      .border-right {
+        font-weight: 400;
+      }
+    }
+
     .weather-icon {
       width: 64px;
       height: 64px;
       margin-right: auto;
       margin-left: auto;
     }
+
     .text-center {
       text-align: center;
       font-weight: 400;
-    }
-    .border {
-      .border-right {
-        border-right: solid 1px $dark-text-color;
-        font-weight: 400;
+
+      &--bold {
+        font-weight: 500;
+      }
+
+      @media screen and (min-width: $tablet-breakpoint) and (max-width: 942px) {
+        font-size: 20px;
       }
     }
+
     .weather-paramenters {
       font-weight: 500;
       font-size: 24px;
-      padding: 0 0 0 2rem;
-    }
-    .weather-paramenters--bold {
-      font-weight: 500;
-    }
-    .padding-bottom {
-      padding-bottom: 2rem;
+      padding-left: 20px;
+      padding-right: 10px;
+
+      @media screen and (min-width: 943px) and (max-width: $before-desktop-breakpoint) {
+        font-size: 20px;
+      }
+
+      @media screen and (min-width: $tablet-breakpoint) and (max-width: 942px) {
+        font-size: 16px;
+      }
     }
 
-    tr:first-child {
-      border-bottom: solid 1px $dark-text-color;
-      font-size: 20px;
-      border: none;
+    .padding-bottom {
+      padding-bottom: 15px;
     }
 
     td {
-      font-weight: 400;
-      font-size: 24px;
       width: 4%;
-      border-right: solid 1px $dark-text-color;
-      padding: 3px;
-    }
+      padding: 5px;
 
-    td:last-child,
-    th:last-child {
-      border-right: none !important;
+      font-size: 24px;
+
+      &:not(:last-child) {
+        border-right: solid 1px $dark-text-color;
+      }
     }
 
     th {
       border: solid 1px $dark-text-color;
       padding: 5px;
     }
-
-    th:first-child {
-      border-left: none;
-    }
   }
 
   .button-position {
-    padding-top: 2%;
+    // padding-top: 2%;
+    margin-top: 45px;
     @media screen and (max-width: $mobile-breakpoint) {
-      padding-top: 1rem;
+      // padding-top: 1rem;
+      margin-top: 33px;
     }
   }
 
@@ -117,19 +144,23 @@
     margin-top: 50px;
     margin-right: auto;
     margin-left: auto;
+    width: 90%;
 
-    @media screen and (min-width: $tablet-breakpoint) {
+    @media screen and (min-width: $mobile-breakpoint) and (max-width: 868px) {
+      width: 400px;
+    }
+
+    border-radius: 20px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    @media screen and (min-width: 869px) {
       display: none;
     }
+
     .forecast-info {
       background-color: $light-background-color;
-      width: 90%;
       text-align: center;
       border-radius: 20px;
-
-      @media screen and (min-width: $mobile-breakpoint) and (max-width: $before-tablet-breakpoint) {
-        width: 400px;
-      }
 
       .title {
         background-color: $light-additional-background-color;
@@ -142,19 +173,28 @@
           padding-left: 25px;
           padding-top: 15px;
           .location {
-            font-size: 36px;
+            font-size: 24px;
             font-weight: 500;
+            @media screen and (min-width: $mobile-breakpoint) and (max-width: 868px) {
+              font-size: 30px;
+            }
           }
           .date {
-            font-size: 30px;
+            font-size: 20px;
             font-weight: 400;
             margin-bottom: 10px;
+            @media screen and (min-width: $mobile-breakpoint) and (max-width: 868px) {
+              font-size: 24px;
+            }
           }
         }
         .star-icon {
-          padding-top: 18px;
-          width: 30px;
-          height: 30px;
+          padding-top: 50px;
+          width: 40px;
+          height: 40px;
+          @media screen and (min-width: $mobile-breakpoint) and (max-width: 868px) {
+            padding-top: 68px;
+          }
         }
       }
 

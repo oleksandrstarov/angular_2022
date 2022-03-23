@@ -43,6 +43,14 @@
   }
 }
 
+.logo--mobile {
+  width: 40px;
+
+  @media screen and (min-width: $tablet-breakpoint) {
+    display: none;
+  }
+}
+
 // this is a block-stub, until component 'favourite list' is created
 .favourite-list-block {
   display: flex;
@@ -155,9 +163,16 @@
 }
 
 @media screen and (max-width: $before-tablet-breakpoint) {
-  .logo {
+  .logo--text,
+  .logo--text__additional {
     display: none;
   }
+
+  // .logo--image {
+  // left: 20px;
+  // top: -7px;
+  // width: 40px;
+  // }
 }
 
 @media screen and (min-width: $tablet-breakpoint) and (max-width: $before-desktop-breakpoint) {

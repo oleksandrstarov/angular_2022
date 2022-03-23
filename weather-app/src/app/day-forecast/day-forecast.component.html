@@ -3,32 +3,32 @@
         <div class="title-table">
             <span class="day-time">{{currentDay}}, {{currentTime}}</span>
             <span class="location">{{currentCity}}, {{currentCountry}}</span>
-            <span (click)="toggleFavorite()">
+            <span (click)="toggleFavorite()" class="city-star">
                 <img src={{starImagePath}} alt="star">
             </span>
         </div>
         <table>
             <tr class="border">
-                <th class="border-left-none">&nbsp;</th>
+                <th></th>
                 <th *ngFor="let day of forecast" class="border-right">
                     {{day.time.split(' ')[1]}}
                 </th>
             </tr>
             <tr>
-                <td class="text-center"></td>
-                <td *ngFor="let day of forecast" class="text-center">
+                <td></td>
+                <td *ngFor="let day of forecast">
                     <img class="weather-icon" src={{getConditionIconUrl(day)}} alt="current weather icon">
                 </td>
             </tr>
             <tr>
                 <td class="weather-paramenters">Temp, &deg;C</td>
-                <td *ngFor="let day of forecast" class="text-center weather-paramenters--bold">
+                <td *ngFor="let day of forecast" class="text-center text-center--bold">
                     {{parseNumber(day.temp_c)}}
                 </td>
             </tr>
             <tr>
                 <td class="weather-paramenters">Feels, &deg;C</td>
-                <td *ngFor="let day of forecast" class="text-center weather-paramenters--bold">
+                <td *ngFor="let day of forecast" class="text-center text-center--bold">
                     {{parseNumber(day.feelslike_c)}}
                 </td>
             </tr>
@@ -90,6 +90,6 @@
         </div>
     </div>
     <div class="button-position">
-        <button class="button"(click)="goToForecast()">Week forecast</button>
+        <button class="button"(click)="goToForecast()">3-Day forecast</button>
     </div>
 </div>

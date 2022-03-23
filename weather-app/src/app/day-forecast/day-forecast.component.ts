@@ -83,7 +83,7 @@ export class DayForecastComponent implements OnInit, DoCheck {
   public getConditionIconUrl(obj: any): string {
     const currentHour = parseInt(obj.time.split(' ')[1]);
     const isDay: boolean = currentHour >= 4 && currentHour <= 20;
-    return `../../assets/images/weather-icons/day/${obj.condition.code}.svg`;
+    return `../../assets/images/weather-icons/${isDay ? 'day' : 'night'}/${obj.condition.code}.svg`;
   }
 
   toggleFavorite(): void {
