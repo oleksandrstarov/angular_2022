@@ -56,20 +56,6 @@
   height: 20px;
 }
 
-.language-switcher {
-  display: flex;
-  align-items: center;
-
-  height: 100%;
-
-  font-size: 16px;
-  line-height: 1.25;
-
-  .inactive {
-    color: $light-additional-text-color;
-  }
-}
-
 .theme-switcher {
   display: flex;
   align-items: center;
@@ -179,6 +165,19 @@
       width: 50px;
       height: 50px;
     }
+  }
+
+  .theme-switcher__icon {
+    display: none;
+  }
+
+  .theme-switcher__control {
+    width: 36px;
+    height: 21px;
+  }
+
+  .theme-switcher__toggle:checked ~ .theme-switcher__marker {
+    transform: translateX(18px);
   }
 }
 
