@@ -1,18 +1,18 @@
 <header class="header" >
     <div class="container header-container">
-        <a href="#" class="logo">
+        <span class="logo" (click)="goToHomePage()">
             <div class="logo--wrapper">
                 <span class="logo--text">S</span>
                 <img src="../../assets/images/icons/logo-sun.svg" class="logo--image" />
                 <span class="logo--text">ul</span>
             </div>
             <span>Weather</span>
-        </a>
-        <a href="#" class="logo--mobile">
+        </span>
+        <span class="logo--mobile" (click)="goToHomePage()">
             <div class="logo--wrapper">
                 <img src="../../assets/images/icons/logo-sun.svg" class="logo--image" />
             </div>
-        </a>
+        </span>
 
         <app-search></app-search>
         

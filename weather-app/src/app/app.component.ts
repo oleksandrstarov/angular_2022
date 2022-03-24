@@ -3,6 +3,7 @@ import { LocalStorageThemeService } from './services/local-storage/local-storage
 import { Observable } from 'rxjs';
 import { WeatherService } from './services/weather.service';
 import { LoaderService } from './services/loader.service';
+import { DayTimeService } from './services/day-time.service';
 
 
 @Component({
@@ -23,6 +24,7 @@ export class AppComponent implements OnInit {
     public localStorageThemeService: LocalStorageThemeService,
     private weatherService: WeatherService,
     private changeDetector: ChangeDetectorRef,
+    private dayTimeService: DayTimeService,
     private loaderService: LoaderService) { }
   
   ngOnInit(): void {
@@ -36,7 +38,7 @@ export class AppComponent implements OnInit {
     this.currentWeatherData = this.weatherService.getCurrentWeather(locationQuery);
 
     this.currentWeatherData.subscribe((data: any) => {
-      this.backgroundClassName = this.getBackgroundClassName(data.location.localtime);
+      this.backgroundClassName = this.dayTimeService.getBackgroundClassName(data.location.localtime);
     });
 
     this.loaderService.isLoading.subscribe(
@@ -53,17 +55,4 @@ export class AppComponent implements OnInit {
     this.localStorageThemeService.setTheme(this.isDarkMode === true ? 'dark' : 'light');
   }
 
-  getBackgroundClassName(localDateTime: string) {
-    const hour: number = parseInt(localDateTime.split(' ')[1]);
-    switch (true) {
-      case (hour >= 0 && hour < 6):
-        return 'night';
-      case (hour >= 6 && hour < 12):
-        return 'morning';
-      case (hour >= 18 && hour < 24):
-        return 'evening';
-      default:
-        return 'day';
-    }
-  }
 }
