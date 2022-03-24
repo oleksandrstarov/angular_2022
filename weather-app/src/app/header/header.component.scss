@@ -43,26 +43,17 @@
   }
 }
 
+.logo--mobile {
+  @media screen and (min-width: $tablet-breakpoint) {
+    display: none;
+  }
+}
+
 // this is a block-stub, until component 'favourite list' is created
 .favourite-list-block {
   display: flex;
   width: 20px;
   height: 20px;
-  // border-bottom: 1px solid #ccc;
-}
-
-.language-switcher {
-  display: flex;
-  align-items: center;
-
-  height: 100%;
-
-  font-size: 16px;
-  line-height: 1.25;
-
-  .inactive {
-    color: $light-additional-text-color;
-  }
 }
 
 .theme-switcher {
@@ -157,6 +148,36 @@
 @media screen and (max-width: $before-tablet-breakpoint) {
   .logo {
     display: none;
+  }
+
+  .logo--mobile {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+
+    height: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+    text-align: center;
+
+    .logo--image {
+      width: 50px;
+      height: 50px;
+    }
+  }
+
+  .theme-switcher__icon {
+    display: none;
+  }
+
+  .theme-switcher__control {
+    width: 36px;
+    height: 21px;
+  }
+
+  .theme-switcher__toggle:checked ~ .theme-switcher__marker {
+    transform: translateX(18px);
   }
 }
 

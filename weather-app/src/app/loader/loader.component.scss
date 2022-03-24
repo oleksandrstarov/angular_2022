@@ -3,7 +3,7 @@
 .loader {
   position: relative;
 
-  margin-top: 70px;
+  margin-top: 40px;
   margin-right: auto;
   margin-left: auto;
   padding: 0;
@@ -16,6 +16,7 @@
   @media screen and (min-width: $tablet-breakpoint) {
     width: 560px;
     height: 360px;
+    margin-top: 70px;
   }
 
   .loader-image {

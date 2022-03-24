@@ -82,6 +82,10 @@ img {
     background-color: $dark-background-color;
     border-bottom: 1px solid $dark-text-color;
 
+    a {
+      color: $dark-text-color !important;
+    }
+
     .language-switcher .inactive {
       color: $dark-additional-text-color;
     }
@@ -95,6 +99,10 @@ img {
     color: $dark-text-color;
     background-color: $dark-background-color;
     border-top: 1px solid $dark-text-color;
+
+    a {
+      color: $dark-text-color !important;
+    }
   }
 
   .landing-page {

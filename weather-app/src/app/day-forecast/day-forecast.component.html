@@ -3,33 +3,33 @@
         <div class="title-table">
             <span class="day-time">{{currentDay}}, {{currentTime}}</span>
             <span class="location">{{currentCity}}, {{currentCountry}}</span>
-            <span (click)="toggleFavorite()">
+            <span (click)="toggleFavorite()" class="city-star">
                 <img src={{starImagePath}} alt="star">
             </span>
         </div>
         <table>
             <tr class="border">
-                <th class="border-left-none">&nbsp;</th>
+                <th></th>
                 <th *ngFor="let day of forecast" class="border-right">
                     {{day.time.split(' ')[1]}}
                 </th>
             </tr>
             <tr>
-                <td class="text-center"></td>
-                <td *ngFor="let day of forecast" class="text-center">
+                <td></td>
+                <td *ngFor="let day of forecast">
                     <img class="weather-icon" src={{getConditionIconUrl(day)}} alt="current weather icon">
                 </td>
             </tr>
             <tr>
                 <td class="weather-paramenters">Temp, &deg;C</td>
-                <td *ngFor="let day of forecast" class="text-center weather-paramenters--bold">
-                    {{parseNumber(day.temp_c)}}
+                <td *ngFor="let day of forecast" class="text-center text-center--bold">
+                    {{day.temp_c | number:'1.0-0'}}
                 </td>
             </tr>
             <tr>
                 <td class="weather-paramenters">Feels, &deg;C</td>
-                <td *ngFor="let day of forecast" class="text-center weather-paramenters--bold">
-                    {{parseNumber(day.feelslike_c)}}
+                <td *ngFor="let day of forecast" class="text-center text-center--bold">
+                    {{day.feelslike_c | number:'1.0-0'}}
                 </td>
             </tr>
             <tr>
@@ -47,7 +47,7 @@
             <tr>
                 <td class="weather-paramenters padding-bottom">Wind, k/h</td>
                 <td *ngFor="let day of forecast" class="text-center padding-bottom">
-                    {{parseNumber(day.wind_kph)}}
+                    {{day.wind_kph | number:'1.0-0'}}
                 </td>
             </tr>
         </table>
@@ -75,9 +75,9 @@
                     <td class="icon-position">
                         <img src={{getConditionIconUrl(day)}} alt="current weather icon" class="weather-icon">
                     </td>
-                    <td class="temp-weight">{{parseNumber(day.temp_c)}}&deg;C</td>
+                    <td class="temp-weight">{{day.temp_c | number:'1.0-0'}}&deg;C</td>
                     <td class="weather-info">{{day.pressure_mb}}</td>
-                    <td class="border-right-none weather-info">{{parseNumber(day.wind_kph)}}</td>
+                    <td class="border-right-none weather-info">{{day.wind_kph | number:'1.0-0'}}</td>
                 </tr>
                 <tr>
                     <td class="border-none"></td>
