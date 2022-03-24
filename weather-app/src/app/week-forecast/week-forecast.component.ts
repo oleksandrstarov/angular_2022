@@ -48,7 +48,9 @@ export class WeekForecastComponent implements OnInit {
     this.forecastData.subscribe((data: any) => {
       this.currentCity = data.location.name;
       this.currentCountry = byCountry(data.location.country)?.iso2 ?? 'null';
-
+      if (data.location.country === 'United States of America') {
+        this.currentCountry = 'US';
+      };
       this.forecast = data.forecast.forecastday.map((day: any) => {
         day.hour = day.hour.filter((item: any, index: number) => {
           if (this.hoursToShowInTemplate.includes(index)) {
@@ -57,6 +59,7 @@ export class WeekForecastComponent implements OnInit {
         })
         return day = day.hour;
       })
+      this.starImagePath = this.getStarImagePath();
     })
   }
   

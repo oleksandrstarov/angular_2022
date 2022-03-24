@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { LocalStorageThemeService } from './services/local-storage/local-storage-theme.service';
 import { Observable } from 'rxjs';
 import { WeatherService } from './services/weather.service';
 import { LoaderService } from './services/loader.service';
+
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,7 @@ export class AppComponent implements OnInit {
   constructor(
     public localStorageThemeService: LocalStorageThemeService,
     private weatherService: WeatherService,
+    private changeDetector: ChangeDetectorRef,
     private loaderService: LoaderService) { }
   
   ngOnInit(): void {
@@ -40,6 +42,10 @@ export class AppComponent implements OnInit {
     this.loaderService.isLoading.subscribe(
       (isLoading: boolean) => this.isLoading = isLoading
     );
+  }
+
+  ngAfterContentChecked(): void {
+    this.changeDetector.detectChanges();
   }
 
   toggleTheme(): void {
