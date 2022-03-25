@@ -4,12 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class DayTimeService {
-
-  constructor() { }
   
-  ngOnInit (): void {
-  }
-
   getBackgroundClassName(localDateTime: string) {
     const hour: number = parseInt(localDateTime.split(' ')[1]);
     switch (true) {
